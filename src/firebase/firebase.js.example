@@ -1,0 +1,28 @@
+import { firebase } from '@firebase/app'
+import '@firebase/auth'
+import '@firebase/firestore'
+
+const config = {
+
+}
+
+const fb = firebase.initializeApp(config)
+
+const db = firebase.firestore()
+
+const userMetaData = () => {
+  db.collection('meta')
+    .get()
+    .then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        console.log(doc.data())
+        if (doc.data().hasOwnProperty('name'))
+          return doc.data()
+      })
+      console.error('Please setup the meta collletction in firebase cloud.')
+    })
+}
+
+export default {
+  db, fb, userMetaData,
+}
