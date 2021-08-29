@@ -1,109 +1,9 @@
 <template>
   <div id="colorlib-page">
     <div class="container-wrap">
-      <sidebar />
+      <sidebar :userData="userData"/>
       <div id="colorlib-main">
-        <section class="colorlib-about" id="about">
-          <div class="colorlib-narrow-content">
-            <div class="row">
-              <div class="col-md-12">
-                <div
-                  class="row row-bottom-padded-sm animate-box"
-                  data-animate-effect="fadeInLeft"
-                >
-                  <div class="col-md-12">
-                    <div class="about-desc">
-                      <span class="heading-meta">About Me</span>
-                      <h2 class="colorlib-heading" style="display: inline">
-                        Who Am I?
-                      </h2>
-                      <span
-                        class="typer colorlib-heading"
-                        style="display: inline"
-                        id="main"
-                        data-words="A Developer,Smart Home Enthusiast,A Geek,Tech Savy,A YouTuber,A Blogger"
-                        data-delay="140"
-                        data-deleteDelay="1"
-                      ></span>
-
-                      <p style="text-align: justify">
-                        <strong>Hi I'm Bikash, </strong> Being a developer I
-                        have around 6+ years of hands on experience in IOT,
-                        Smart Micro Grid & Embedded System Integration and
-                        implementation of most complex, user friendly and secure
-                        applications/systems combining the latest application
-                        development and integrating technologies available today
-                        utilizing the best practices of the software/hardware
-                        industry. You can download my CV from here.
-                        <a href="docs/Bikash_Resume.pdf">
-                          <i class="icon-download4"></i
-                        ></a>
-                      </p>
-                      <p>
-                        Some of the areas I havce worked on and love to work
-                        are,
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="row">
-                  <div
-                    class="col-md-3 animate-box"
-                    data-animate-effect="fadeInLeft"
-                  >
-                    <div class="services color-1">
-                      <span class="icon2"
-                        ><img
-                          src="images/greenenergy.png"
-                          style="width: 35px; height: 35px"
-                      /></span>
-                      <h3>RE Smart Grid</h3>
-                    </div>
-                  </div>
-                  <div
-                    class="col-md-3 animate-box"
-                    data-animate-effect="fadeInRight"
-                  >
-                    <div class="services color-2">
-                      <span class="icon2"
-                        ><img
-                          src="images/iot.png"
-                          style="width: 35px; height: 35px"
-                      /></span>
-                      <h3>IoT Products</h3>
-                    </div>
-                  </div>
-                  <div
-                    class="col-md-3 animate-box"
-                    data-animate-effect="fadeInTop"
-                  >
-                    <div class="services color-3">
-                      <span class="icon2"
-                        ><img
-                          src="images/smart_home.png"
-                          style="width: 35px; height: 35px"
-                      /></span>
-                      <h3>Home Automation</h3>
-                    </div>
-                  </div>
-                  <div
-                    class="col-md-3 animate-box"
-                    data-animate-effect="fadeInBottom"
-                  >
-                    <div class="services color-4">
-                      <span class="icon2"
-                        ><img
-                          src="images/blog.png"
-                          style="width: 35px; height: 35px"
-                      /></span>
-                      <h3>Content Creation</h3>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <introduction :userData="userData"/>
         <section class="colorlib-skills" data-section="skills" id="skills">
           <div class="colorlib-narrow-content">
             <div class="row">
@@ -2406,10 +2306,17 @@
 
 <script>
 import sidebar from "./sidebar/Index.vue";
+import introduction from "../components/Introduction.vue";
 export default {
   name: "Container",
   components: {
     sidebar,
+    introduction,
+  },
+  computed: {
+    userData: function () {
+      return this.$store.getters.getUserMetaData;
+    },
   },
 };
 </script>
