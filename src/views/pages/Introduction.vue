@@ -31,19 +31,7 @@
           v-for="(tech, index) in userData.areaofinterest"
           :key="index"
         >
-          <v-card class="mx-auto" outlined>
-            <v-list-item two-line>
-              <v-list-item-content dense>
-                <div class="text-overline mb-4">{{ tech.name }}</div>
-                <v-list-item-subtitle>
-                  <small> {{ tech.desc }}</small>
-                </v-list-item-subtitle>
-              </v-list-item-content>
-              <v-list-item-avatar tile size="55">
-                <v-img :src="tech.image || 'images/tech_image_ph.jpg'"></v-img
-              ></v-list-item-avatar>
-            </v-list-item>
-          </v-card>
+          <areaOfInterest :tech="tech" />
         </v-col>
       </v-row>
     </div>
@@ -51,7 +39,8 @@
 </template>
 
 <script>
-import file from "../firebase/file";
+import file from "../../firebase/file";
+import areaOfInterest from "../../components/AreaOfInterestCard";
 export default {
   name: "Introduction",
   data() {
@@ -59,6 +48,9 @@ export default {
   },
   props: {
     userData: {},
+  },
+  components: {
+    areaOfInterest,
   },
   watch: {
     userData: function (val) {

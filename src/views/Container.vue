@@ -2306,7 +2306,7 @@
 
 <script>
 import sidebar from "./sidebar/Index.vue";
-import introduction from "../components/Introduction.vue";
+import introduction from "./pages/Introduction.vue";
 export default {
   name: "Container",
   components: {
