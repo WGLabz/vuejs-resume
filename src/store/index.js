@@ -17,6 +17,7 @@ export default new Vuex.Store({
   },
   actions: {
     async setUserMetaData(state) {
+      console.info('Fetching user meta data.')
       const data = [];
       const querySnapshot = await getDocs(collection(firebase.db, "meta"));
       querySnapshot.forEach((doc) => {
@@ -24,7 +25,6 @@ export default new Vuex.Store({
       });
       if (data.length === 0)
         throw new Error("Please setup firebase meta collection.");
-
       state.commit("setUserMetaData", data[0]);
     },
     async setSkills(state) {

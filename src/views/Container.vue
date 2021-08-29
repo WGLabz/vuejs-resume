@@ -3,7 +3,7 @@
     <div class="container-wrap">
       <sidebar />
       <div id="colorlib-main">
-        <section class="colorlib-about" data-section="about">
+        <section class="colorlib-about" id="about">
           <div class="colorlib-narrow-content">
             <div class="row">
               <div class="col-md-12">
@@ -104,7 +104,7 @@
             </div>
           </div>
         </section>
-        <section class="colorlib-skills" data-section="skills">
+        <section class="colorlib-skills" data-section="skills" id="skills">
           <div class="colorlib-narrow-content">
             <div class="row">
               <div
