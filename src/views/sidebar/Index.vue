@@ -2,7 +2,7 @@
   <aside id="colorlib-aside" role="complementary" class="border">
     <div class="text-center">
       <v-avatar size="156">
-        <img src="images/user_image.png" alt="User" />
+        <img :src="userImage || 'images/user_image.png'" alt="User" />
       </v-avatar>
       <h1 id="colorlib-logo" class="mt-4 text-center">
         {{ userData.name || "A Dummy Name" }}
@@ -109,8 +109,10 @@
 </template>
 
 <script>
+import file from "../../firebase/file";
 export default {
   name: "Sidebar",
+  mounted() {},
   computed: {
     userData: function () {
       return this.$store.getters.getUserMetaData;
@@ -119,11 +121,22 @@ export default {
   watch: {
     userData: function (val) {
       this.hasSocialMedia = val.social && val.social.length > 0 ? true : false;
+      if (this.userData.avatar) {
+        file
+          .getFile(this.userData.avatar)
+          .then((url) => {
+            this.userImage = url;
+          })
+          .catch((error) => {
+            console.error("Error loading user image " + error);
+          });
+      }
     },
   },
   data() {
     return {
       hasSocialMedia: Boolean,
+      userImage: "",
     };
   },
 };
