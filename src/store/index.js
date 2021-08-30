@@ -6,7 +6,7 @@ import { collection, getDocs } from "firebase/firestore";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: { userMetaData: {}, skills: [] },
+  state: { userMetaData: {}, skills: {}, techStacks: [] },
   mutations: {
     setUserMetaData(state, meta) {
       state.userMetaData = meta;
@@ -14,10 +14,12 @@ export default new Vuex.Store({
     setSkills(state, skills) {
       state.skills = skills;
     },
+    setTechStacks(state, tech) {
+      state.techStacks = tech;
+    }
   },
   actions: {
     async setUserMetaData(state) {
-      console.info('Fetching user meta data.')
       const data = [];
       const querySnapshot = await getDocs(collection(firebase.db, "meta"));
       querySnapshot.forEach((doc) => {
@@ -36,7 +38,18 @@ export default new Vuex.Store({
       if (data.length === 0)
         throw new Error("Please setup firebase skills collection.");
 
-      state.commit("setSkills", data);
+      state.commit("setSkills", data[0]);
+    },
+    async setTechStacks(state) {
+      console.info('Fetching tech stacks data.')
+      const data = [];
+      const querySnapshot = await getDocs(collection(firebase.db, "tech"));
+      querySnapshot.forEach((doc) => {
+        data.push(doc.data());
+      });
+      if (data.length === 0)
+        throw new Error("Please setup firebase tech collection.");
+      state.commit("setTechStacks", data);
     },
   },
   modules: {},
@@ -47,5 +60,9 @@ export default new Vuex.Store({
     getSkills(state) {
       return state.skills;
     },
+    getTechStacks(state) {
+      console.log('Hello')
+      return state.techStacks;
+    }
   },
 });

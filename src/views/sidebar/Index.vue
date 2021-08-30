@@ -11,7 +11,6 @@
         userData.iama || "I am a Developer"
       }}</span>
     </div>
-
     <v-divider />
     <nav id="colorlib-main-menu" role="navigation" class="mt-4">
       <ul>
@@ -112,18 +111,15 @@
 import file from "../../firebase/file";
 export default {
   name: "Sidebar",
-  mounted() {},
-  computed: {
-    userData: function () {
-      return this.$store.getters.getUserMetaData;
-    },
+  props: {
+    userData: {},
   },
   watch: {
     userData: function (val) {
       this.hasSocialMedia = val.social && val.social.length > 0 ? true : false;
-      if (this.userData.avatar) {
+      if (val.avatar) {
         file
-          .getFile(this.userData.avatar)
+          .getFile(val.avatar)
           .then((url) => {
             this.userImage = url;
           })

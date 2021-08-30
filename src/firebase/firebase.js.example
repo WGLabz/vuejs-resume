@@ -15,7 +15,6 @@ const userMetaData = () => {
     .get()
     .then((querySnapshot) => {
       querySnapshot.forEach((doc) => {
-        console.log(doc.data())
         if (doc.data().hasOwnProperty('name'))
           return doc.data()
       })

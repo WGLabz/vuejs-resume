@@ -11,17 +11,24 @@ import Container from "./views/Container.vue";
 
 export default {
   name: "App",
-
   components: {
     Container,
   },
-
-  data: () => ({
-    //
-  }),
   mounted() {
     this.$store.dispatch("setUserMetaData");
     this.$store.dispatch("setSkills");
+    this.$store.dispatch("setTechStacks");
+  },
+  metaInfo() {
+    return {
+      title: this.title,
+    };
+  },
+  computed: {
+    title: function () {
+      let name = this.$store.getters.getUserMetaData.name;
+      return name ? `${name} | Resume` : "A dummy title.";
+    },
   },
 };
 </script>
