@@ -2,11 +2,18 @@
   <section class="colorlib-about" id="about">
     <div class="colorlib-narrow-content">
       <div class="row">
+        <div
+          class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
+          data-animate-effect="fadeInLeft"
+        >
+          <span class="heading-meta">About Me</span>
+          <h2 class="colorlib-heading animate-box">WHO AM I?</h2>
+        </div>
+      </div>
+      <div class="row mt-0">
         <div class="col-md-12">
-          <div class="about-desc">
-            <span class="heading-meta">About Me</span>
-            <h2 class="colorlib-heading" style="display: inline">Who Am I?</h2>
-            <p style="text-align: justify" class="mt-6">
+          <div class="about-desc mt-0">
+            <p style="text-align: justify">
               <strong>
                 Hey I am
                 {{
@@ -54,7 +61,6 @@ export default {
   },
   watch: {
     userData: function (val) {
-      console.log(val);
       if (val.resume_file) {
         file
           .getFile(val.resume_file)

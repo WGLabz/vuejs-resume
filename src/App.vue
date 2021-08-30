@@ -17,6 +17,7 @@ export default {
   mounted() {
     this.$store.dispatch("setUserMetaData");
     this.$store.dispatch("setSkills");
+    this.$store.dispatch("setTechStacks");
   },
   metaInfo() {
     return {
