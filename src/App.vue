@@ -19,6 +19,8 @@ export default {
     this.$store.dispatch("setSkills");
     this.$store.dispatch("setTechStacks");
     this.$store.dispatch("setProjectsData");
+    this.$store.dispatch("setEducationData");
+    this.$store.dispatch("setCertificationsData");
   },
   metaInfo() {
     return {

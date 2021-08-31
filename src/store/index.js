@@ -6,7 +6,7 @@ import { collection, getDocs } from "firebase/firestore";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: { userMetaData: {}, skills: {}, techStacks: [], projectsData: [] },
+  state: { userMetaData: {}, skills: {}, techStacks: [], projectsData: [], certificationsData: [], educationData: [] },
   mutations: {
     setUserMetaData(state, meta) {
       state.userMetaData = meta;
@@ -19,7 +19,14 @@ export default new Vuex.Store({
     },
     setProjectsData(state, projects) {
       state.projectsData = projects;
-    }
+    },
+    setEducationData(state, education) {
+      state.educationData = education;
+    },
+    setCertificationsData(state, certifications) {
+      state.certificationsData = certifications;
+    },
+
   },
   actions: {
     async setUserMetaData(state) {
@@ -63,6 +70,28 @@ export default new Vuex.Store({
       if (data.length === 0)
         throw new Error("Please setup firebase projects collection.");
       state.commit("setProjectsData", data);
+    },
+    async setEducationData(state) {
+      console.info('Fetching Education data.')
+      const data = [];
+      const querySnapshot = await getDocs(collection(firebase.db, "education"));
+      querySnapshot.forEach((doc) => {
+        data.push(doc.data());
+      });
+      if (data.length === 0)
+        throw new Error("Please setup firebase education collection.");
+      state.commit("setEducationData", data);
+    },
+    async setCertificationsData(state) {
+      console.info('Fetching certifications data.')
+      const data = [];
+      const querySnapshot = await getDocs(collection(firebase.db, "certifications"));
+      querySnapshot.forEach((doc) => {
+        data.push(doc.data());
+      });
+      if (data.length === 0)
+        throw new Error("Please setup firebase certifications collection.");
+      state.commit("setCertificationsData", data);
     }
   },
   modules: {},
@@ -78,6 +107,12 @@ export default new Vuex.Store({
     },
     getProjectsData(state) {
       return state.projectsData;
+    },
+    getEducationData(state) {
+      return state.educationData;
+    },
+    getCertificationsData(state) {
+      return state.certificationsData;
     }
   },
 });
