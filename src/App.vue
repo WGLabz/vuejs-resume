@@ -18,6 +18,7 @@ export default {
     this.$store.dispatch("setUserMetaData");
     this.$store.dispatch("setSkills");
     this.$store.dispatch("setTechStacks");
+    this.$store.dispatch("setProjectsData");
   },
   metaInfo() {
     return {
