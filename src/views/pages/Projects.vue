@@ -34,12 +34,7 @@ import projectCard from "../../components/ProjectCard.vue";
 export default {
   name: "Projects",
   components: { projectCard },
-  props: { projectsData: [] },
-  watch: {
-    projectsData: function (val) {
-      console.log(val);
-    },
-  },
+  props: { projectsData: [] }
 };
 </script>
 

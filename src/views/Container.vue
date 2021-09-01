@@ -6,15 +6,13 @@
         <introduction :user-data="userData" />
         <skills :user-data="userData" :skills-overview="skillsOverviewData" />
         <projects :projects-data="projectsData" />
-        <education />
-        <certifications />
+        <education :data="educationData" />
+        <certifications :data="certificationsData" />
         <experience />
         <publications />
         <contact />
       </div>
-      <!-- end:colorlib-main -->
     </div>
-    <!-- end:container-wrap -->
   </div>
 </template>
 
@@ -24,7 +22,7 @@ import introduction from "./pages/Introduction";
 import skills from "./pages/Skills";
 import Projects from "./pages/Projects.vue";
 import Education from "./pages/Education.vue";
-import Certifications from "./pages/Certifications.vue";  
+import Certifications from "./pages/Certifications.vue";
 import Experience from "./pages/Experience.vue";
 import Publications from "./pages/Publications.vue";
 import Contact from "./pages/Contact.vue";
@@ -51,6 +49,12 @@ export default {
     },
     skillsOverviewData: function () {
       return this.$store.getters.getSkills;
+    },
+    educationData: function () {
+      return this.$store.getters.getEducationData;
+    },
+    certificationsData: function () {
+      return this.$store.getters.getCertificationsData;
     },
   },
 };
