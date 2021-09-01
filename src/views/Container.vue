@@ -8,8 +8,8 @@
         <projects :projects-data="projectsData" />
         <education :data="educationData" />
         <certifications :data="certificationsData" />
-        <experience />
-        <publications />
+        <experience :data="experienceData" />
+        <publications :data="publicationsData" />
         <contact />
       </div>
     </div>
@@ -55,6 +55,12 @@ export default {
     },
     certificationsData: function () {
       return this.$store.getters.getCertificationsData;
+    },
+    experienceData: function () {
+      return this.$store.getters.getExperienceData;
+    },
+    publicationsData: function () {
+      return this.$store.getters.getPublicationsData;
     },
   },
 };

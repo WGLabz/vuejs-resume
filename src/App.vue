@@ -21,6 +21,8 @@ export default {
     this.$store.dispatch("setProjectsData");
     this.$store.dispatch("setEducationData");
     this.$store.dispatch("setCertificationsData");
+    this.$store.dispatch("setPublicationsData");
+    this.$store.dispatch("setExperienceData");
   },
   metaInfo() {
     return {

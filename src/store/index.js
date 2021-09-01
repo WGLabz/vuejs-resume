@@ -6,7 +6,7 @@ import { collection, getDocs } from "firebase/firestore";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: { userMetaData: {}, skills: {}, techStacks: [], projectsData: [], certificationsData: [], educationData: [] },
+  state: { userMetaData: {}, skills: {}, techStacks: [], projectsData: [], certificationsData: [], educationData: [], experienceData: [], publicationsData: [] },
   mutations: {
     setUserMetaData(state, meta) {
       state.userMetaData = meta;
@@ -25,6 +25,12 @@ export default new Vuex.Store({
     },
     setCertificationsData(state, certifications) {
       state.certificationsData = certifications;
+    },
+    setExperienceData(state, experiences) {
+      state.experienceData = experiences;
+    },
+    setPublicationsData(state, publications) {
+      state.publicationsData = publications;
     },
 
   },
@@ -92,6 +98,28 @@ export default new Vuex.Store({
       if (data.length === 0)
         throw new Error("Please setup firebase certifications collection.");
       state.commit("setCertificationsData", data);
+    },
+    async setExperienceData(state) {
+      console.info('Fetching experience data.')
+      const data = [];
+      const querySnapshot = await getDocs(collection(firebase.db, "experience"));
+      querySnapshot.forEach((doc) => {
+        data.push(doc.data());
+      });
+      if (data.length === 0)
+        throw new Error("Please setup firebase experience collection.");
+      state.commit("setExperienceData", data);
+    },
+    async setPublicationsData(state) {
+      console.info('Fetching publications data.')
+      const data = [];
+      const querySnapshot = await getDocs(collection(firebase.db, "publications"));
+      querySnapshot.forEach((doc) => {
+        data.push(doc.data());
+      });
+      if (data.length === 0)
+        throw new Error("Please setup firebase p collection.");
+      state.commit("setPublicationsData", data);
     }
   },
   modules: {},
@@ -113,6 +141,12 @@ export default new Vuex.Store({
     },
     getCertificationsData(state) {
       return state.certificationsData;
+    },
+    getPublicationssData(state) {
+      return state.publicationsData;
+    },
+    getExperienceData(state) {
+      return state.experienceData;
     }
   },
 });
