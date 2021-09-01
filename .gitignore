@@ -2,7 +2,8 @@
 node_modules
 /dist
 src/firebase/index.js
-
+fb-key.json
+myDatabase.json
 # local env files
 .env.local
 .env.*.local
