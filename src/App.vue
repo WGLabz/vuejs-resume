@@ -18,6 +18,11 @@ export default {
     this.$store.dispatch("setUserMetaData");
     this.$store.dispatch("setSkills");
     this.$store.dispatch("setTechStacks");
+    this.$store.dispatch("setProjectsData");
+    this.$store.dispatch("setEducationData");
+    this.$store.dispatch("setCertificationsData");
+    this.$store.dispatch("setPublicationsData");
+    this.$store.dispatch("setExperienceData");
   },
   metaInfo() {
     return {

@@ -6,6 +6,8 @@ import router from './routes.js'
 import VueMeta from 'vue-meta'
 
 Vue.use(VueMeta)
+Vue.use(require('vue-moment'));
+
 Vue.config.productionTip = false
 
 new Vue({
