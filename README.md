@@ -1,3 +1,6 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=WGLabz_resume&metric=alert_status)](https://sonarcloud.io/dashboard?id=WGLabz_resume)  [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=WGLabz_resume&metric=bugs)](https://sonarcloud.io/dashboard?id=WGLabz_resume)  [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=WGLabz_resume&metric=code_smells)](https://sonarcloud.io/dashboard?id=WGLabz_resume)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=WGLabz_resume&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=WGLabz_resume)
+
 # Resume with Vue/Vuetify and Firebase
 
 ```
@@ -10,7 +13,7 @@ npm run lint
 
 ## Import/Export Firebase Data
 
-* Install `[node-firestore-import-export](https://www.npmjs.com/package/node-firestore-import-export)` globally by using the command `npm install -g node-firestore-import-export`
+* Install [node-firestore-import-export](https://www.npmjs.com/package/node-firestore-import-export) globally by using the command `npm install -g node-firestore-import-export`
 * Create a new private key from firebase project.
     
     * Goto  `Project Settings` -> `Service Accounts` in firebase console.
@@ -28,7 +31,7 @@ e.g. firestore-export --accountCredentials fb-key.json --backupFile myDatabase.j
 ```js
 firestore-import --accountCredentials path/to/credentials/file.json --backupFile /backups/myDatabase.json
 
-e.g. e.g. firestore-import --accountCredentials fb-key.json --backupFile myDatabase.json
+e.g. firestore-import --accountCredentials fb-key.json --backupFile myDatabase.json
 
 ```
 
