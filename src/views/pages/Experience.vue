@@ -20,6 +20,7 @@
 
 <script>
 import ExperienceCard from "../../components/ExperienceCard.vue";
+
 export default {
   name: "Experience",
   props: {
