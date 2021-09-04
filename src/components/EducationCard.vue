@@ -1,17 +1,24 @@
 <template>
-  <v-card elevation="2" class="mx-auto mb-2">
+  <v-card outlined class="mx-auto mb-4">
     <v-card-title>
-      <v-icon small v-if="data.image"></v-icon>
-      <span class="text-h6 font-weight-light"
-        >{{ data.institute }},{{ data.location }}
-      </span>
+      <v-image></v-image>
+      <span>{{ data.institute }}, {{ data.location }} </span>
     </v-card-title>
     <v-card-subtitle>
-      {{ data.degree }} in {{ data.specialization }}, CGPA/%:
-      {{ data.gpa }}
+      {{ data.degree }} in {{ data.specialization }},
     </v-card-subtitle>
+    <v-card-text class="pb-0">
+      <v-btn small outlined disabled class="mr-2">
+        {{ data.from.seconds | moment("YYYY") }} -
+        {{ data.to.seconds | moment("YYYY") }}
+      </v-btn>
+      <v-btn small outlined disabled
+        >CGPA/%:
+        <strong>{{ data.gpa }}</strong>
+      </v-btn>
+    </v-card-text>
     <v-card-text class="pb-0">{{ data.desc }}</v-card-text>
-    <v-card-text class="pt-0">
+    <v-card-text class="pt-0 pl-0">
       <v-list three-line>
         <template v-for="(item, index) in data.bulletpoints">
           <v-subheader :key="index">
@@ -27,7 +34,26 @@
 </template>
 
 <script>
+import file from "../firebase/file";
 export default {
   props: { data: {} },
+  data() {
+    return {
+      image: "images/logo_ph.jpg",
+    };
+  },
+  mounted() {
+    if (this.data.image) {
+      file
+        .getFile(this.data.image)
+        .then((url) => {
+          this.image = url;
+        })
+        .catch(() => {
+          this.image = "images/logo_ph.jpg";
+          console.warn("Error loading education logo image ");
+        });
+    }
+  },
 };
 </script>
