@@ -1,5 +1,5 @@
 <template>
-  <section class="colorlib-education" data-section="education">
+  <section class="colorlib-education" id="education">
     <div class="colorlib-narrow-content">
       <div class="row">
         <div

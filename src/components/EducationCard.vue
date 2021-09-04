@@ -20,8 +20,8 @@
               <span> {{ item.text }}</span>
             </slot>
           </v-subheader>
-        </template></v-list
-      >
+        </template>
+      </v-list>
     </v-card-text>
   </v-card>
 </template>

@@ -30,11 +30,6 @@
           >
         </li>
         <li>
-          <router-link :to="{ name: 'home', hash: '#articles' }"
-            >Articles</router-link
-          >
-        </li>
-        <li>
           <router-link :to="{ name: 'home', hash: '#education' }"
             >Education</router-link
           >

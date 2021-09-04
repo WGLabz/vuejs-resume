@@ -10,7 +10,7 @@
         <certifications :data="certificationsData" />
         <experience :data="experienceData" />
         <publications :data="publicationsData" />
-        <contact />
+        <contact :data="contactDetails" />
       </div>
     </div>
   </div>
@@ -61,6 +61,9 @@ export default {
     },
     publicationsData: function () {
       return this.$store.getters.getPublicationsData;
+    },
+    contactDetails: function () {
+      return this.$store.getters.getContactDetails;
     },
   },
 };

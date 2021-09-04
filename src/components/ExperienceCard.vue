@@ -3,32 +3,23 @@
     <v-card elevation="2" class="mx-auto mb-2">
       <v-card-title>{{ data.org }} </v-card-title>
       <v-card-text class="pb-0">
-        <a-timeline>
-          <a-timeline-item color="green">
-            Create a services site 2015-09-01
-          </a-timeline-item>
-          <a-timeline-item color="green">
-            Create a services site 2015-09-01
-          </a-timeline-item>
-          <a-timeline-item color="red">
-            <p>Solve initial network problems 1</p>
-            <p>Solve initial network problems 2</p>
-            <p>Solve initial network problems 3 2015-09-01</p>
-          </a-timeline-item>
-          <a-timeline-item>
-            <p>Technical testing 1</p>
-            <p>Technical testing 2</p>
-            <p>Technical testing 3 2015-09-01</p>
-          </a-timeline-item>
-          <a-timeline-item color="gray">
-            <p>Technical testing 1</p>
-            <p>Technical testing 2</p>
-            <p>Technical testing 3 2015-09-01</p>
-          </a-timeline-item>
-          <a-timeline-item color="gray">
-            <p>Technical testing 1</p>
-            <p>Technical testing 2</p>
-            <p>Technical testing 3 2015-09-01</p>
+        <a-timeline class="pl-0">
+          <a-timeline-item
+            :color="color"
+            v-for="(designation, index) in data.designations"
+            :key="index"
+          >
+            {{ designation.position }}, {{ designation.from }} -
+            {{ designation.to }}
+            <p>{{ designation.desc }}</p>
+            <template v-for="(item, index) in designation.bulletpoints">
+              <v-subheader :key="index">
+                <slot>
+                  <v-icon small class="pr-1"> mdi-trophy </v-icon>
+                  <span> {{ item.text }}</span>
+                </slot>
+              </v-subheader>
+            </template>
           </a-timeline-item>
         </a-timeline>
       </v-card-text>
@@ -37,12 +28,18 @@
 </template>
 
 <script>
+import utils from "../utils";
 export default {
   name: "ExperienceCard",
   props: {
     data: {},
   },
   components: {},
+  computed: {
+    color: function () {
+      return utils.generateRandomDarkColor();
+    },
+  },
 };
 </script>
 

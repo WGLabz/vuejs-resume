@@ -6,7 +6,7 @@ import { collection, getDocs } from "firebase/firestore";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: { userMetaData: {}, skills: {}, techStacks: [], projectsData: [], certificationsData: [], educationData: [], experienceData: [], publicationsData: [] },
+  state: { userMetaData: {}, skills: {}, techStacks: [], projectsData: [], certificationsData: [], educationData: [], experienceData: [], publicationsData: [], contactDetails: {} },
   mutations: {
     setUserMetaData(state, meta) {
       state.userMetaData = meta;
@@ -32,6 +32,9 @@ export default new Vuex.Store({
     setPublicationsData(state, publications) {
       state.publicationsData = publications;
     },
+    setContactDetails(state, details) {
+      state.contactDetails = details;
+    }
 
   },
   actions: {
@@ -120,6 +123,17 @@ export default new Vuex.Store({
       if (data.length === 0)
         throw new Error("Please setup firebase p collection.");
       state.commit("setPublicationsData", data);
+    },
+    async setContactDetails(state) {
+      console.info('Fetching publications data.')
+      const data = [];
+      const querySnapshot = await getDocs(collection(firebase.db, "contact"));
+      querySnapshot.forEach((doc) => {
+        data.push(doc.data());
+      });
+      if (data.length === 0)
+        throw new Error("Please setup firebase contact collection.");
+      state.commit("setContactDetails", data[0]);
     }
   },
   modules: {},
@@ -142,11 +156,14 @@ export default new Vuex.Store({
     getCertificationsData(state) {
       return state.certificationsData;
     },
-    getPublicationssData(state) {
+    getPublicationsData(state) {
       return state.publicationsData;
     },
     getExperienceData(state) {
       return state.experienceData;
+    },
+    getContactDetails(state) {
+      return state.contactDetails;
     }
   },
 });

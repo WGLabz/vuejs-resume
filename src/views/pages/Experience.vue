@@ -1,5 +1,5 @@
 <template>
-  <section class="colorlib-experience" data-section="work">
+  <section class="colorlib-experience" id="experience">
     <div class="colorlib-narrow-content">
       <div class="row">
         <div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
