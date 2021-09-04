@@ -22,16 +22,16 @@ npm run lint
 * To export existing databases from Firebase, replace the filename and the path in the following command and run in the terminal.
 
 ```js
-firestore-export --accountCredentials <location>/<filename> --backupFile myDatabase.json
+firestore-export --accountCredentials <location>/<filename> --backupFile data.json
 
-e.g. firestore-export --accountCredentials fb-key.json --backupFile myDatabase.json
+e.g. firestore-export --accountCredentials fb-key.json --backupFile data.json
 ```
 * To import JSON file to the firebase DB use the following command. Please ensure the JSON file is valid.
 
 ```js
-firestore-import --accountCredentials path/to/credentials/file.json --backupFile /backups/myDatabase.json
+firestore-import --accountCredentials path/to/credentials/file.json --backupFile /backups/data.json
 
-e.g. firestore-import --accountCredentials fb-key.json --backupFile myDatabase.json
+e.g. firestore-import --accountCredentials fb-key.json --backupFile data.json
 
 ```
 
