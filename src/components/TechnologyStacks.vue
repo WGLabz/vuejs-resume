@@ -5,7 +5,12 @@
     </div>
     <div>
       <v-tooltip top v-for="(technology, ii) in tech.tech" :key="ii">
-        <template v-slot:activator="{ on, attrs }" v-if="technology.name" dense small>
+        <template
+          v-slot:activator="{ on, attrs }"
+          v-if="technology.name"
+          dense
+          small
+        >
           <v-btn
             type="button"
             class="ml-3"
