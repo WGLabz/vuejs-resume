@@ -1,15 +1,11 @@
 <template>
-  <div>
-    <div
-      class="col-md-12 animate-box"
-      data-animate-effect="fadeInRight"
-      style="margin-bottom: 20px"
-    >
-      <h4>{{ tech.name || "Dummy Technology Type" }}</h4>
+  <div style="padding: 0px">
+    <div class="col-md-12">
+      <h6 v-if="hasHeader">{{ tech.name || "Dummy Technology Type" }}</h6>
     </div>
     <div>
       <v-tooltip top v-for="(technology, ii) in tech.tech" :key="ii">
-        <template v-slot:activator="{ on, attrs }" v-if="technology.name">
+        <template v-slot:activator="{ on, attrs }" v-if="technology.name" dense small>
           <v-btn
             type="button"
             class="ml-3"
@@ -25,7 +21,9 @@
             {{ technology.name }}
           </v-btn>
         </template>
-        <span>Learn more about {{ technology.name }}</span>
+        <span v-if="technology.link">
+          Learn more about {{ technology.name }}
+        </span>
       </v-tooltip>
     </div>
   </div>
@@ -37,6 +35,9 @@ export default {
   name: "TechnologyStacks",
   props: {
     tech: {},
+    hasHeader: {
+      default: true,
+    },
   },
   methods: {
     generateIcon(tech) {

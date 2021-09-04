@@ -30,11 +30,6 @@ export default {
   },
   props: {
     data: [],
-  },
-  watch: {
-    data: function (val) {
-      console.log("Certs " + val);
-    },
-  },
+  }
 };
 </script>

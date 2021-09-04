@@ -19,28 +19,29 @@
           <span v-else>Now</span>
         </span>
       </h2>
+      <p><Strong>Client: </Strong>{{ project.client }}</p>
       <p style="text-align: justify">
         {{ project.desc }}
       </p>
-      <ul class="fa-ul">
-        <li>
-          <span class="fa-li"><i class="fa fa-building"></i></span
-          ><Strong>Client: </Strong>{{ project.client }}
-        </li>
-        <li>
-          <span class="fa-li"><i class="fa fa-tags"></i></span
-          ><Strong>Technologies: </Strong>{{ project.tech }}
-        </li>
-      </ul>
+      <technology-stacks :tech="tech" :hasHeader="false" />
     </div>
   </div>
 </template>
 
 <script>
+import TechnologyStacks from "./TechnologyStacks.vue";
 export default {
   name: "ProjectCard",
   props: {
     project: {},
+  },
+  computed: {
+    tech: function () {
+      return { tech: this.project.tech };
+    },
+  },
+  components: {
+    TechnologyStacks,
   },
 };
 </script>
