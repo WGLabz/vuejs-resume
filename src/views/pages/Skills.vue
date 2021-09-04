@@ -32,11 +32,11 @@
           </p>
         </div>
         <!-- Technology Stacks -->
-          <technology-stacks
-            :tech="tech"
-            v-for="tech in techStacks"
-            :key="tech.name"
-          />
+        <technology-stacks
+          :tech="tech"
+          v-for="tech in techStacks"
+          :key="tech.name"
+        />
       </div>
     </div>
   </section>
@@ -59,6 +59,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>

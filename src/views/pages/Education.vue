@@ -19,7 +19,11 @@
               role="tablist"
               aria-multiselectable="true"
             >
-              <education-card v-for="(education,index) in data" :key="index" :data="education"/>
+              <education-card
+                v-for="(education, index) in data"
+                :key="index"
+                :data="education"
+              />
             </div>
           </div>
         </div>
@@ -37,9 +41,6 @@ export default {
   },
   props: {
     data: [],
-  }
+  },
 };
 </script>
-
-<style>
-</style>

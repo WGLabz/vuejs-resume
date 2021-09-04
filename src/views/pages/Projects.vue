@@ -34,9 +34,6 @@ import projectCard from "../../components/ProjectCard.vue";
 export default {
   name: "Projects",
   components: { projectCard },
-  props: { projectsData: [] }
+  props: { projectsData: [] },
 };
 </script>
-
-<style>
-</style>

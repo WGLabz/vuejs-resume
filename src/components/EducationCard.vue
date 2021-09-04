@@ -31,23 +31,3 @@ export default {
   props: { data: {} },
 };
 </script>
-
-<style>
-</style>
-
-// {
-//     "desc": "Completed in 2014 from National Institute of Science and Technolog, Berhampur, Odisha with a CGPA of 8.2. My research topic was on Smart Nano Grids, under the guidance of Prof. Bhawani Shankar Pattnaik. I got into NIST with scholarship from MHRD, India as was GATE-2011 (AIR: 5126) qualified.",
-//     "institute": "NIST",
-//     "image": "",
-//     "bulletpoints": [
-//         {
-//             "icon": "trophy",
-//             "link": "hx..com",
-//             "text": "Published 2 papers in IEEE conferences"
-//         }
-//     ],
-//     "specialization": "Electronics and COmmunnication",
-//     "gpa": "8.2",
-//     "degree": "Master of Technology",
-//     "location": "Berhampur, India"
-// }
