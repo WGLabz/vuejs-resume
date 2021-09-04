@@ -11,11 +11,9 @@
         </div>
       </div>
       <div class="row row-pt-md">
-        <certification-card
-          v-for="(certifcation, index) in data"
-          :key="index"
-          :data="certifcation"
-        />
+        <div class="col-md-6" v-for="(certifcation, index) in data" :key="index">
+          <certification-card :certifcation="certifcation" v-if="certifcation.name" />
+        </div>
       </div>
     </div>
   </section>
@@ -30,11 +28,6 @@ export default {
   },
   props: {
     data: [],
-  },
-  watch: {
-    data: function (val) {
-      console.log("Certs " + val);
-    },
   },
 };
 </script>

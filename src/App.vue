@@ -41,4 +41,8 @@ export default {
 <style>
 @import "./assets/styles/main.css";
 @import "./assets/styles/style.css";
+
+.parent-container{
+  margin-left: 40px;
+}
 </style>
