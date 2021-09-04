@@ -30,9 +30,9 @@
               <p v-if="data.house">{{ data.house }}</p>
               <p v-if="data.street">{{ data.street }}</p>
               <p v-if="data.city || data.state">
-                {{ data.city }}<span v-if="data.state">,</span>{{ data.state }}
+                {{ data.city }}<span v-if="data.state">, </span>{{ data.state }}
               </p>
-              <p v-if="data.country || data.pincode">
+              <p v-if="data.country || data.pincode" class="text-uppercase">
                 {{ data.country }}<span v-if="data.pincode">-</span
                 >{{ data.pincode }}
               </p>
