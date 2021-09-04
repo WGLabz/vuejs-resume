@@ -95,7 +95,7 @@ export default {
         ? this.certifcation.name.substring(0, 20) + "...."
         : this.certifcation.name;
     this.content =
-      this.certifcation.desc > 60
+      this.certifcation.desc.length > 60
         ? this.certifcation.desc.substring(0, 55) + "...."
         : this.certifcation.desc;
   },
