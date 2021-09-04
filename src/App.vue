@@ -23,6 +23,7 @@ export default {
     this.$store.dispatch("setCertificationsData");
     this.$store.dispatch("setPublicationsData");
     this.$store.dispatch("setExperienceData");
+    this.$store.dispatch("setContactDetails");
   },
   metaInfo() {
     return {

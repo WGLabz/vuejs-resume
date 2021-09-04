@@ -1,5 +1,5 @@
 <template>
-  <section class="colorlib-services" data-section="certifications">
+  <section class="colorlib-services" id="certifications">
     <div class="colorlib-narrow-content">
       <div class="row">
         <div
@@ -38,6 +38,3 @@ export default {
   },
 };
 </script>
-
-<style>
-</style>

@@ -1,5 +1,5 @@
 <template>
-  <section class="colorlib-experience" data-section="projects">
+  <section class="colorlib-experience" id="projects">
     <div class="colorlib-narrow-content">
       <div class="row">
         <div
@@ -34,9 +34,6 @@ import projectCard from "../../components/ProjectCard.vue";
 export default {
   name: "Projects",
   components: { projectCard },
-  props: { projectsData: [] }
+  props: { projectsData: [] },
 };
 </script>
-
-<style>
-</style>
