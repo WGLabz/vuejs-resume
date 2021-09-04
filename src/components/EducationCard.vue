@@ -1,7 +1,14 @@
 <template>
   <v-card outlined class="mx-auto mb-4">
     <v-card-title>
-      <v-image></v-image>
+      <v-img
+        lazy-src="images/logo_ph.jpg"
+        max-height="25"
+        max-width="30"
+        contain
+        :src="image"
+        class="mr-2"
+      ></v-img>
       <span>{{ data.institute }}, {{ data.location }} </span>
     </v-card-title>
     <v-card-subtitle>
