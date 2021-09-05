@@ -1,7 +1,28 @@
 <template>
   <v-timeline-item small>
-    <v-card elevation="1" class="mx-auto mb-2">
-      <v-card-title>{{ data.org }} </v-card-title>
+    <template v-slot:icon>
+      <v-avatar>
+        <img :src="image" />
+      </v-avatar>
+    </template>
+    <v-card class="mx-auto mb-2">
+      <v-card-title>
+        {{ data.org }}
+      </v-card-title>
+      <v-card-subtitle>
+        <span v-if="data.from" small>
+          <v-icon small>mdi-calendar</v-icon>
+          {{ data.from.seconds | moment("MMM YYYY") }} -
+          {{ getTimeTo(data) }}
+        </span>
+
+        <span v-if="data.link">
+          <v-btn small plain :href="data.link" target="_blank">
+            <v-icon small class="mr-1">mdi-link</v-icon>  
+              Website
+          </v-btn>
+        </span>
+      </v-card-subtitle>
       <v-card-text class="pb-0">
         <a-timeline class="pl-0">
           <a-timeline-item
@@ -9,19 +30,31 @@
             v-for="(designation, index) in data.designations"
             :key="index"
           >
-            {{ designation.position }}, {{ designation.from }} -
-            {{ designation.to }}
+            <b>{{ designation.position }}</b>
+            <p>
+              <span v-if="designation.jobtype" class="mr-2">
+                <v-icon small>mdi-briefcase</v-icon>
+                {{ designation.jobtype }}
+              </span>
+              <span v-if="designation.from" class="mr-2">
+                <v-icon small>mdi-calendar</v-icon>
+                {{ designation.from.seconds | moment("MMM YYYY") }} -
+                {{ getTimeTo(designation) }}
+              </span>
+              <span v-if="designation.location">
+                <v-icon small>mdi-map-marker </v-icon>
+                {{ designation.location }}
+              </span>
+            </p>
             <p>{{ designation.desc }}</p>
-            <template v-for="(item, index) in designation.bulletpoints">
-              <v-subheader :key="index">
-                <slot>
-                  <v-icon small class="pr-1"> mdi-trophy </v-icon>
-                  <span> {{ item.text }}</span>
-                </slot>
-              </v-subheader>
-            </template>
           </a-timeline-item>
         </a-timeline>
+      </v-card-text>
+      <v-card-text class="mt-0 pt-0">
+        <span v-for="(item, index) in data.bulletpoints" :key="index">
+          <v-icon small class="pr-1"> {{ icon(item.icon) }}</v-icon
+          >{{ item.text }}
+        </span>
       </v-card-text>
     </v-card>
   </v-timeline-item>
@@ -29,16 +62,47 @@
 
 <script>
 import utils from "../utils";
+import file from "../firebase/file";
+import moment from "moment";
 export default {
   name: "ExperienceCard",
   props: {
     data: {},
+  },
+  data() {
+    return {
+      image: "images/logo_ph.jpg",
+      timeto: "",
+    };
+  },
+  methods: {
+    getTimeTo(val) {
+      return val.to && val.to.seconds
+        ? moment(val.to.seconds * 1000).format("MMM YYYY")
+        : "Now";
+    },
+    icon(item) {
+      return item ? "mdi-" + item : "mdi-diameter-variant";
+    },
   },
   components: {},
   computed: {
     color: function () {
       return utils.generateRandomDarkColor();
     },
+  },
+  mounted() {
+    if (this.data.image) {
+      file
+        .getFile(this.data.image)
+        .then((url) => {
+          this.image = url;
+        })
+        .catch(() => {
+          this.image = "images/logo_ph.jpg";
+          console.warn("Error loading experience logo image ");
+        });
+    }
   },
 };
 </script>
