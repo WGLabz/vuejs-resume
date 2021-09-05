@@ -1,54 +1,39 @@
 <template>
-  <section class="colorlib-skills" data-section="skills" id="skills">
-    <div class="colorlib-narrow-content">
-      <div class="row">
-        <div
-          class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
-          data-animate-effect="fadeInLeft"
-        >
-          <span class="heading-meta">My Specialty</span>
-          <h2 class="colorlib-heading animate-box">My Skills</h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-          <p style="text-align: justify">
-            {{ skillsOverview.desc }}
-          </p>
-        </div>
-        <!-- primary skills or domain -->
-        <skill-with-progress-bar
-          v-for="(skill, index) in skillsOverview.primaryskills"
-          :key="index"
-          :skill="skill"
-        />
-        <div
-          class="col-md-12 animate-box"
-          data-animate-effect="fadeInLeft"
-          style="margin-top: 10px; margin-bottom: 20px"
-        >
-          <p style="text-align: justify">
-            I have worked on following techonologies or atleast I am aware of,
-          </p>
-        </div>
-        <!-- Technology Stacks -->
-        <div class="ml-3">
-          <technology-stacks
-            :tech="tech"
-            v-for="tech in techStacks"
-            :key="tech.name"
-          />
-        </div>
-      </div>
+  <div class="parent-container" id="skills" style="padding-bottom: 140px">
+    <module-header title="My Speciality" header="My Skills" />
+    <div class="row">
+      <v-col class="col-md-12">
+        <p style="text-align: justify">
+          {{ skillsOverview.desc }}
+        </p>
+      </v-col>
     </div>
-  </section>
+    <!-- primary skills or domain -->
+
+    <div class="row d-flex justify-content-start flex-wrap mb-8">
+      <skill-with-progress-bar
+        v-for="(skill, index) in skillsOverview.primaryskills"
+        :key="index"
+        :skill="skill"
+      />
+    </div>
+    <!-- Technology Stacks -->
+    <div class="d-flex justify-content-start flex-wrap">
+      <technology-stacks
+        :tech="tech"
+        v-for="tech in techStacks"
+        :key="tech.name"
+      />
+    </div>
+  </div>
 </template>
 
 <script>
+import ModuleHeader from "../../components/ModuleHeader.vue";
 import SkillWithProgressBar from "../../components/SkillWithProgressBar.vue";
 import TechnologyStacks from "../../components/TechnologyStacks";
 export default {
-  components: { SkillWithProgressBar, TechnologyStacks },
+  components: { SkillWithProgressBar, TechnologyStacks, ModuleHeader },
   name: "Skills",
   props: {
     skillsOverview: {},
