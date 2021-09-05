@@ -1,39 +1,26 @@
 <template>
-  <section class="colorlib-experience" id="projects">
-    <div class="colorlib-narrow-content">
-      <div class="row">
-        <div
-          class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box"
-          data-animate-effect="fadeInLeft"
-        >
-          <span class="heading-meta">What Matters</span>
-          <h2 class="colorlib-heading animate-box">Projects</h2>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-12">
-          <div class="timeline-centered">
-            <article
-              class="timeline-entry animate-box"
-              data-animate-effect="fadeInLeft"
-              v-for="(project, index) in projectsData"
-              :key="index"
-            >
-              <project-card :project="project" />
-            </article>
-          </div>
-        </div>
-      </div>
+  <div>
+    <div class="parent-container" id="experience">
+      <module-header title="What Matters" header="Project" />
     </div>
-  </section>
+    <div class="px-0 mx-0">
+      <v-timeline align-top dense>
+        <project-card
+          :project="project"
+          v-for="(project, index) in projectsData"
+          :key="index"
+        />
+      </v-timeline>
+    </div>
+  </div>
 </template>
 
 <script>
+import ModuleHeader from "../../components/ModuleHeader.vue";
 import projectCard from "../../components/ProjectCard.vue";
 export default {
   name: "Projects",
-  components: { projectCard },
+  components: { projectCard, ModuleHeader },
   props: { projectsData: [] },
 };
 </script>
