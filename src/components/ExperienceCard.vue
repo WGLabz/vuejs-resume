@@ -1,6 +1,6 @@
 <template>
-  <v-timeline-item color="pink" small>
-    <v-card elevation="2" class="mx-auto mb-2">
+  <v-timeline-item small>
+    <v-card elevation="1" class="mx-auto mb-2">
       <v-card-title>{{ data.org }} </v-card-title>
       <v-card-text class="pb-0">
         <a-timeline class="pl-0">

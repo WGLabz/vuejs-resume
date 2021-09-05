@@ -1,24 +1,23 @@
 <template>
-  <section class="colorlib-experience" id="experience">
-    <div class="colorlib-narrow-content">
-      <div class="row">
-        <div class="col-md-6 animate-box" data-animate-effect="fadeInLeft">
-          <span class="heading-meta">Experience</span>
-          <h2 class="colorlib-heading animate-box">Work Experience</h2>
-        </div>
-      </div>
+  <div>
+    <div class="parent-container" id="experience">
+      <module-header title="Work Experience" header="Experience" />
     </div>
-    <v-timeline align-top dense class="p-0 m-0">
-      <experience-card
-        :data="experience"
-        v-for="(experience, index) in data"
-        :key="index"
-      />
-    </v-timeline>
-  </section>
+    <div class="px-0 mx-0">
+      <v-timeline align-top dense>
+        <experience-card
+          :data="experience"
+          v-for="(experience, index) in data"
+          :key="index"
+          class="pl-0 mr-0"
+        />
+      </v-timeline>
+    </div>
+  </div>
 </template>
 
 <script>
+import ModuleHeader from "../../components/ModuleHeader.vue";
 import ExperienceCard from "../../components/ExperienceCard.vue";
 
 export default {
@@ -26,8 +25,6 @@ export default {
   props: {
     data: [],
   },
-  components: {
-    ExperienceCard,
-  },
+  components: { ModuleHeader, ExperienceCard },
 };
 </script>
