@@ -1,35 +1,24 @@
 <template>
-  <div style="padding: 0px">
-    <div class="col-md-12">
+  <div>
+    <div class="pb-2">
       <h6 v-if="hasHeader">{{ tech.name || "Dummy Technology Type" }}</h6>
     </div>
-    <div>
-      <v-tooltip top v-for="(technology, ii) in tech.tech" :key="ii">
-        <template
-          v-slot:activator="{ on, attrs }"
-          v-if="technology.name"
-          dense
+    <div class="d-flex justify-content-start flex-wrap">
+      <div v-for="(technology, ii) in tech.tech" :key="ii" class="mr-2 mb-2">
+        <v-btn
+          type="button"
+          class="ml-0"
           small
+          dark
+          :color="color()"
+          :href="technology.link"
+          target="_blank"
+          v-if="technology.name"
         >
-          <v-btn
-            type="button"
-            class="ml-3"
-            small
-            dark
-            :color="color()"
-            :href="technology.link"
-            target="_blank"
-            v-bind="attrs"
-            v-on="on"
-          >
-            <v-icon small class="pr-2">{{ generateIcon(technology) }}</v-icon>
-            {{ technology.name }}
-          </v-btn>
-        </template>
-        <span v-if="technology.link">
-          Learn more about {{ technology.name }}
-        </span>
-      </v-tooltip>
+          <v-icon small class="pr-2">{{ generateIcon(technology) }}</v-icon>
+          {{ technology.name }}
+        </v-btn>
+      </div>
     </div>
   </div>
 </template>

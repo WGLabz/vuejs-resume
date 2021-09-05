@@ -18,8 +18,8 @@
 
         <span v-if="data.link">
           <v-btn small plain :href="data.link" target="_blank">
-            <v-icon small class="mr-1">mdi-link</v-icon>  
-              Website
+            <v-icon small class="mr-1">mdi-link</v-icon>
+            Website
           </v-btn>
         </span>
       </v-card-subtitle>
@@ -52,8 +52,12 @@
       </v-card-text>
       <v-card-text class="mt-0 pt-0">
         <span v-for="(item, index) in data.bulletpoints" :key="index">
-          <v-icon small class="pr-1"> {{ icon(item.icon) }}</v-icon
-          >{{ item.text }}
+          <p class="mb-0">
+            <v-icon small class="pr-1">
+              {{ icon(item.icon) }}
+            </v-icon>
+            {{ item.text }}
+          </p>
         </span>
       </v-card-text>
     </v-card>

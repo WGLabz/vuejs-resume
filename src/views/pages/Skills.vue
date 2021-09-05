@@ -32,11 +32,13 @@
           </p>
         </div>
         <!-- Technology Stacks -->
-        <technology-stacks
-          :tech="tech"
-          v-for="tech in techStacks"
-          :key="tech.name"
-        />
+        <div class="ml-3">
+          <technology-stacks
+            :tech="tech"
+            v-for="tech in techStacks"
+            :key="tech.name"
+          />
+        </div>
       </div>
     </div>
   </section>

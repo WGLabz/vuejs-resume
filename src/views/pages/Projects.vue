@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="margin-bottom: 80px">
     <div class="parent-container" id="experience">
       <module-header title="What Matters" header="Project" />
     </div>
