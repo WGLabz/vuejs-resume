@@ -1,5 +1,5 @@
 <template>
-  <div class="parent-container" id="education">
+  <div class="parent-container" id="education" style="margin-bottom: 140px">
     <module-header title="Education" header="Education" />
     <education-card
       v-for="(education, index) in data"

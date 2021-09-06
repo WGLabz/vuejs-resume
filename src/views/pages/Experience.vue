@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="parent-container" id="experience">
+  <div style="margin-bottom: 140px" id="experience">
+    <div class="parent-container">
       <module-header title="Work Experience" header="Experience" />
     </div>
     <div class="px-0 mx-0">

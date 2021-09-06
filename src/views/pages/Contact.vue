@@ -23,7 +23,7 @@
             </v-col>
           </v-row>
           <v-row>
-            <v-col cols="2" class="px-0">
+            <v-col cols="2" class="px-0"  v-if="Object.keys(data).length > 2">
               <v-icon>mdi-crosshairs-gps </v-icon>
             </v-col>
             <v-col>

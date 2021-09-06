@@ -9,17 +9,17 @@
         :src="image"
         class="mr-2"
       ></v-img>
-      <span>{{ data.institute }}, {{ data.location }} </span>
+      <span>{{ data.institute }} <span v-if="data.location">, {{ data.location }} </span></span>
     </v-card-title>
     <v-card-subtitle>
-      {{ data.degree }} in {{ data.specialization }},
+      {{ data.degree }} in {{ data.specialization }}
     </v-card-subtitle>
     <v-card-text class="pb-0">
-      <v-btn small outlined disabled class="mr-2">
+      <v-btn small outlined disabled class="mr-2" v-if="data.from && data.to">
         {{ data.from.seconds | moment("YYYY") }} -
         {{ data.to.seconds | moment("YYYY") }}
       </v-btn>
-      <v-btn small outlined disabled
+      <v-btn small outlined disabled v-if="data.gpa"
         >CGPA/%:
         <strong>{{ data.gpa }}</strong>
       </v-btn>

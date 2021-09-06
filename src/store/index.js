@@ -111,6 +111,9 @@ export default new Vuex.Store({
       });
       if (data.length === 0)
         throw new Error("Please setup firebase experience collection.");
+      data.sort((x, y) => {
+        return y.from.seconds - x.from.seconds
+      })
       state.commit("setExperienceData", data);
     },
     async setPublicationsData(state) {
