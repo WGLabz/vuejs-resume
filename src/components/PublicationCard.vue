@@ -1,39 +1,49 @@
 <template>
-  <div class="row row-pt-md">
-    <div class="col-md-12 text-center animate-box">
-      <template>
-        <a-card
-          class=""
-          :title="publication.papername"
-          style="text-align: left"
-          size="small"
-          type="inner"
-        >
-          <div class="d-flex flex-no-wrap">
-            <v-avatar class="ma-1" size="125" tile>
-              <v-img :src="publication.image || 'images/paper_ph.png'"></v-img>
-            </v-avatar>
-            <div>
-              {{ publication.desc }}
-            </div>
-          </div>
-          <div slot="extra">
-            <a :href="publication.link" target="_blank">
-              <v-btn class="px-2" icon small>
-                <v-icon> mdi-link </v-icon>
-              </v-btn>
-            </a>
+  <v-card class="mb-8" outlined>
+    <v-card-title>{{ publication.papername }}</v-card-title>
+    <v-card-subtitle
+      >{{ publication.event }}
+      <span v-if="publication.date">
+       <v-icon small class="mx-1">mdi-circle-small</v-icon>{{ publication.date.seconds | moment("MMM YYYY") }}</span
+      >
+    </v-card-subtitle>
 
-            <a :href="publication.pdf" target="_blank">
-              <v-btn class="p-4" icon small>
-                <v-icon class="mx-2"> mdi-file-document </v-icon>
-              </v-btn>
-            </a>
-          </div>
-        </a-card>
-      </template>
-    </div>
-  </div>
+    <v-row>
+      <v-col cols="2" class="align-items-center">
+        <v-avatar class="ma-1" size="125" tile>
+          <v-img :src="publication.image || 'images/paper_ph.png'"></v-img>
+        </v-avatar>
+      </v-col>
+      <v-col>
+        <v-card-text> {{ publication.desc }}</v-card-text>
+        <v-card-text>
+          <v-btn
+            outlined
+            plain
+            small
+            :href="publication.link"
+            target="_blank"
+            v-if="publication.link"
+            class="mx-2"
+          >
+            <v-icon class="mx-2" small> mdi-link </v-icon> Link
+          </v-btn>
+
+          <v-btn
+            outlined
+            plain
+            small
+            :href="publication.pdf"
+            target="_blank"
+            v-if="publication.pdf"
+          >
+            <v-icon class="mx-2" small> mdi-file-document </v-icon>
+            PDF Download
+          </v-btn>
+        </v-card-text>
+      </v-col>
+    </v-row>
+  </v-card>
 </template>
 
 <script>
