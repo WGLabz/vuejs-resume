@@ -79,7 +79,7 @@
       </div>
       <v-divider class="mt-2" />
     </template>
-    <div class="colorlib-footer">
+    <div style="text-align: center">
       <p>
         <small
           >&copy;
@@ -89,13 +89,7 @@
             target="_blank"
             >WGLabz</a
           >
-          All rights reserved. Made from
-          <a
-            href="https://colorlib.com/wp/template/elen/"
-            target="_blank"
-            class="text-decoration-none"
-            >Colorlib</a
-          >
+          All rights reserved.
         </small>
       </p>
     </div>
