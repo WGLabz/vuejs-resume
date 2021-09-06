@@ -1,8 +1,8 @@
 <template>
-  <div id="colorlib-page">
-    <div class="container-wrap">
+  <div class="page">
+    <div class="wrapper">
       <sidebar :user-data="userData" />
-      <div id="colorlib-main">
+      <div id="container">
         <introduction :user-data="userData" />
         <skills :user-data="userData" :skills-overview="skillsOverviewData" />
         <projects :projects-data="projectsData" />
@@ -69,4 +69,29 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.page {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.wrapper {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+#container {
+  width: calc(100% - 300px);
+  float: right;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s;
+}
+@media screen and (max-width: 768px) {
+  #container {
+    width: 100%;
+    padding: 0 1em;
+  }
+}
+</style>
