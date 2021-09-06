@@ -11,16 +11,13 @@
       </v-card-title>
       <v-card-subtitle>
         <span v-if="data.from" small>
-          <v-icon small>mdi-calendar</v-icon>
           {{ data.from.seconds | moment("MMM YYYY") }} -
           {{ getTimeTo(data) }}
         </span>
 
         <span v-if="data.link">
-          <v-btn small plain :href="data.link" target="_blank">
-            <v-icon small class="mr-1">mdi-link</v-icon>
-            Website
-          </v-btn>
+          <v-icon small class="mx-1">mdi-circle-small</v-icon>
+          <v-btn small plain :href="data.link" target="_blank"> Website </v-btn>
         </span>
       </v-card-subtitle>
       <v-card-text class="pb-0">
@@ -33,16 +30,15 @@
             <b>{{ designation.position }}</b>
             <p>
               <span v-if="designation.jobtype" class="mr-2">
-                <v-icon small>mdi-briefcase</v-icon>
                 {{ designation.jobtype }}
               </span>
               <span v-if="designation.from" class="mr-2">
-                <v-icon small>mdi-calendar</v-icon>
+                <v-icon small>mdi-circle-small</v-icon>
                 {{ designation.from.seconds | moment("MMM YYYY") }} -
                 {{ getTimeTo(designation) }}
               </span>
               <span v-if="designation.location">
-                <v-icon small>mdi-map-marker </v-icon>
+                <v-icon small>mdi-circle-small</v-icon>
                 {{ designation.location }}
               </span>
             </p>
