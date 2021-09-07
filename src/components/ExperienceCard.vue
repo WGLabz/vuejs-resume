@@ -92,6 +92,9 @@ export default {
     },
   },
   mounted() {
+    this.data.designations.sort((x, y) => {
+        return y.from.seconds - x.from.seconds
+      })
     if (this.data.image) {
       file
         .getFile(this.data.image)

@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <div class="pb-2">
-      <h6 v-if="hasHeader">{{ tech.name || "Dummy Technology Type" }}</h6>
+  <div class="pb-6">
+    <div class="pb-1">
+      <h4 v-if="hasHeader">{{ tech.name || "Dummy Technology Type" }}</h4>
     </div>
     <div class="d-flex justify-content-start flex-wrap">
       <div v-for="(technology, ii) in tech.tech" :key="ii" class="mr-2 mb-2">
@@ -13,6 +13,7 @@
           :color="color()"
           :href="technology.link"
           target="_blank"
+          depressed
           v-if="technology.name"
         >
           <v-icon small class="pr-2">{{ generateIcon(technology) }}</v-icon>
