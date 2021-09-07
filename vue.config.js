@@ -2,5 +2,5 @@ module.exports = {
   transpileDependencies: [
     'vuetify'
   ],
-  // publicPath: '/vuejs-resume/'
+  publicPath: '/vuejs-resume/'
 }
