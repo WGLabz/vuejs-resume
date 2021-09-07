@@ -78,6 +78,9 @@ export default new Vuex.Store({
       });
       if (data.length === 0)
         throw new Error("Please setup firebase projects collection.");
+      data.sort((x, y) => {
+        return y.from.seconds - x.from.seconds
+      })
       state.commit("setProjectsData", data);
     },
     async setEducationData(state) {
@@ -89,6 +92,9 @@ export default new Vuex.Store({
       });
       if (data.length === 0)
         throw new Error("Please setup firebase education collection.");
+      data.sort((x, y) => {
+        return y.from.seconds - x.from.seconds
+      })
       state.commit("setEducationData", data);
     },
     async setCertificationsData(state) {

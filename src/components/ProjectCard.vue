@@ -2,7 +2,7 @@
   <v-timeline-item small>
     <template v-slot:icon>
       <v-avatar>
-        <img :src="image" />
+        <img :src="image" alt="Project Logo"/>
       </v-avatar>
     </template>
     <v-card class="mx-auto mb-2">
