@@ -8,8 +8,8 @@
         </v-list-item-subtitle>
       </v-list-item-content>
       <v-list-item-avatar tile size="55">
-        <v-img :src="image" lazy-src="images/tech_image_ph.jpg"></v-img
-      ></v-list-item-avatar>
+        <v-img :src="image" contain> </v-img>
+      </v-list-item-avatar>
     </v-list-item>
   </v-card>
 </template>
@@ -19,7 +19,7 @@ import file from "../firebase/file";
 export default {
   name: "AreaOfInterest",
   data() {
-    return { image: "" };
+    return { image: "images/tech_image_ph.jpg" };
   },
   props: {
     tech: {},

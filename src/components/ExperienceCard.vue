@@ -29,11 +29,11 @@
           >
             <strong>{{ designation.position }}</strong>
             <p>
-              <span v-if="designation.jobtype" class="mr-2">
+              <span v-if="designation.jobtype">
                 {{ designation.jobtype }}
               </span>
-              <span v-if="designation.from" class="mr-2">
-                <v-icon small>mdi-circle-small</v-icon>
+              <span v-if="designation.from">
+                <v-icon small class="mx-0">mdi-circle-small</v-icon>
                 {{ designation.from.seconds | moment("MMM YYYY") }} -
                 {{ getTimeTo(designation) }}
               </span>
