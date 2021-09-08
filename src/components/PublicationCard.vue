@@ -27,7 +27,7 @@
             v-if="publication.link"
             class="mx-2"
           >
-            <v-icon class="mx-2" small> mdi-link </v-icon> Link
+            <v-icon class="mx-1" small> mdi-link </v-icon> Link
           </v-btn>
 
           <v-btn
@@ -38,7 +38,7 @@
             target="_blank"
             v-if="publication.pdf"
           >
-            <v-icon class="mx-2" small> mdi-file-document </v-icon>
+            <v-icon class="mx-1" small> mdi-file-document </v-icon>
             PDF Download
           </v-btn>
         </v-card-text>
