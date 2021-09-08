@@ -50,6 +50,11 @@
           >
         </li>
         <li>
+          <router-link :to="{ name: 'home', hash: '#personal' }"
+            >Personal Projects</router-link
+          >
+        </li>
+        <li>
           <router-link :to="{ name: 'home', hash: '#contacts' }"
             >Contact</router-link
           >

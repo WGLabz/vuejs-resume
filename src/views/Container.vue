@@ -10,6 +10,7 @@
         <certifications :data="certificationsData" />
         <experience :data="experienceData" />
         <publications :data="publicationsData" />
+        <personal-projects />
         <contact :data="contactDetails" />
       </div>
     </div>
@@ -26,6 +27,7 @@ import Certifications from "./pages/Certifications.vue";
 import Experience from "./pages/Experience.vue";
 import Publications from "./pages/Publications.vue";
 import Contact from "./pages/Contact.vue";
+import PersonalProjects from "./pages/PersonalProjects.vue";
 
 export default {
   name: "Container",
@@ -39,6 +41,7 @@ export default {
     Experience,
     Publications,
     Contact,
+    PersonalProjects,
   },
   computed: {
     projectsData: function () {
