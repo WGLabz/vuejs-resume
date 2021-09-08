@@ -8,17 +8,34 @@
         </v-list-item-subtitle>
       </v-list-item-content>
       <v-list-item-avatar tile size="55">
-        <v-img :src="tech.image || 'images/tech_image_ph.jpg'"></v-img
+        <v-img :src="image" lazy-src="images/tech_image_ph.jpg"></v-img
       ></v-list-item-avatar>
     </v-list-item>
   </v-card>
 </template>
 
 <script>
+import file from "../firebase/file";
 export default {
   name: "AreaOfInterest",
+  data() {
+    return { image: "" };
+  },
   props: {
     tech: {},
+  },
+  mounted() {
+    if (this.tech.image) {
+      file
+        .getFile(this.tech.image)
+        .then((url) => {
+          this.image = url;
+        })
+        .catch(() => {
+          this.image = "images/tech_image_ph.jpg";
+          console.warn("Error loading AreaOfInteres image ");
+        });
+    }
   },
 };
 </script>

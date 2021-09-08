@@ -2,7 +2,7 @@
   <v-timeline-item small>
     <template v-slot:icon>
       <v-avatar>
-        <img :src="image" />
+        <img :src="image" alt="Org Image"/>
       </v-avatar>
     </template>
     <v-card class="mx-auto mb-2">
@@ -27,7 +27,7 @@
             v-for="(designation, index) in data.designations"
             :key="index"
           >
-            <b>{{ designation.position }}</b>
+            <strong>{{ designation.position }}</strong>
             <p>
               <span v-if="designation.jobtype" class="mr-2">
                 {{ designation.jobtype }}
@@ -92,6 +92,9 @@ export default {
     },
   },
   mounted() {
+    this.data.designations.sort((x, y) => {
+        return y.from.seconds - x.from.seconds
+      })
     if (this.data.image) {
       file
         .getFile(this.data.image)
