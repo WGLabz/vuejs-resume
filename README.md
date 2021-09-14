@@ -9,7 +9,29 @@ npm run serve
 npm run build
 npm run lint
 ```
+## Setting it up!!
+* Fork this repository.
+* Create a repository where you want to host your static files. If you want to access your website using url like `<username>.github.io` like mine [bikashnpanda.github.io](https://bikashnpanda.github.io), create the repository on same name.
+* Create `firebase` project and obtain config file. [Click Here]()
+* Now go to `/src/firebase/index.js` section in the cloned repo. Replace the `const FIREBASE_CONFIG = {}` section with the config obtained in the previous step.
+![](images/app_config.PNG)
+* 
+## Allow READ access only, firestore
 
+Goto `Firestore Database` -> `Rules` And add the following lines,
+
+```js
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read: if true
+    }
+  }
+}
+```
+![firestore_rules.PNG](images/firestore_rules.PNG)
 
 ## Import/Export Firebase Data
 
