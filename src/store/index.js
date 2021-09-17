@@ -7,7 +7,7 @@ import getters from './getters'
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: { userMetaData: {}, skills: {}, techStacks: [], projectsData: [], certificationsData: [], educationData: [], experienceData: [], publicationsData: [], contactDetails: {} },
+  state: { userMetaData: {}, skills: {}, techStacks: [], projectsData: [], certificationsData: [], educationData: [], experienceData: [], publicationsData: [], contactDetails: {}, personalProjects: [] },
   mutations: mutations,
   actions: actions,
   modules: {},

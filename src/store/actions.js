@@ -59,5 +59,9 @@ export default {
     async setContactDetails(state) {
         var data = await firestoreCall("contact");
         state.commit("setContactDetails", data[0]);
+    },
+    async setPersonaProjects(state){
+        var data = await firestoreCall("personalprojects");
+        state.commit("setPersonaProjects", data[0]);
     }
 }

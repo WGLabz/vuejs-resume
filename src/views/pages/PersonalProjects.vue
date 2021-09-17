@@ -4,7 +4,9 @@
       <module-header title="The ME Time" header="Personal Projects" />
     </div>
     <div class="px-0 mx-0">
-      <youtube-videos></youtube-videos>
+      <v-timeline align-top dense>
+        <youtube-videos></youtube-videos>
+      </v-timeline>
     </div>
   </div>
 </template>

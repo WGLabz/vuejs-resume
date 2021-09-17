@@ -24,6 +24,7 @@ export default {
     this.$store.dispatch("setPublicationsData");
     this.$store.dispatch("setExperienceData");
     this.$store.dispatch("setContactDetails");
+    this.$store.dispatch("setPersonalProjects");
   },
   metaInfo() {
     return {

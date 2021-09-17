@@ -25,5 +25,8 @@ export default {
     },
     getContactDetails(state) {
         return state.contactDetails;
+    },
+    getPersonalProjects(state) {
+        return state.personalProjects;
     }
 }
