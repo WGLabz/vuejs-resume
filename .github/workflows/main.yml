@@ -1,5 +1,6 @@
 name: Build Vue
-on:   
+
+on:
   push:
     branches:
       - master
