@@ -1,5 +1,5 @@
 <template>
-  <v-col md="6">
+  <v-col class="col-sm-6">
     <v-icon dense class="pb-1 pr-1">{{ icon }}</v-icon>
     <span>{{ skill.name }}</span>
     <v-progress-linear :value="skill.level" height="14" :color="color_"

@@ -9,7 +9,10 @@
         :src="image"
         class="mr-2"
       ></v-img>
-      <span>{{ data.institute }} <span v-if="data.location">, {{ data.location }} </span></span>
+      <span
+        >{{ data.institute }}
+        <span v-if="data.location">, {{ data.location }} </span></span
+      >
     </v-card-title>
     <v-card-subtitle>
       {{ data.degree }} in {{ data.specialization }}
@@ -25,22 +28,21 @@
       </v-btn>
     </v-card-text>
     <v-card-text class="pb-0">{{ data.desc }}</v-card-text>
-    <v-card-text class="pt-0 pl-0">
-      <v-list three-line>
-        <template v-for="(item, index) in data.bulletpoints">
-          <v-subheader :key="index">
-            <slot>
-              <v-icon small class="pr-1"> mdi-trophy </v-icon>
-              <span> {{ item.text }}</span>
-            </slot>
-          </v-subheader>
-        </template>
-      </v-list>
+    <v-card-text class="mt-4">
+      <span v-for="(item, index) in data.bulletpoints" :key="index">
+        <p class="mb-0">
+          <v-icon small class="pr-1">
+            {{ icon(item.icon) }}
+          </v-icon>
+          {{ item.text }}
+        </p>
+      </span>
     </v-card-text>
   </v-card>
 </template>
 
 <script>
+import moment from "moment";
 import file from "../firebase/file";
 export default {
   props: { data: {} },
@@ -61,6 +63,16 @@ export default {
           console.warn("Error loading education logo image ");
         });
     }
+  },
+  methods: {
+    getTimeTo(val) {
+      return val.to && val.to.seconds
+        ? moment(val.to.seconds * 1000).format("MMM YYYY")
+        : "Now";
+    },
+    icon(item) {
+      return item ? "mdi-" + item : "mdi-diameter-variant";
+    },
   },
 };
 </script>

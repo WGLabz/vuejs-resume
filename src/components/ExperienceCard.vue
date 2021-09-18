@@ -2,7 +2,7 @@
   <v-timeline-item small>
     <template v-slot:icon>
       <v-avatar>
-        <img :src="image" alt="Org Image"/>
+        <img :src="image" alt="Org Image" />
       </v-avatar>
     </template>
     <v-card class="mx-auto mb-2">
@@ -16,8 +16,10 @@
         </span>
 
         <span v-if="data.link">
-          <v-icon small class="mx-1">mdi-circle-small</v-icon>
-          <v-btn small plain :href="data.link" target="_blank"> Website </v-btn>
+          <v-icon small>mdi-circle-small</v-icon>
+          <v-btn small plain :href="data.link" class="px-0" target="_blank">
+            Website
+          </v-btn>
         </span>
       </v-card-subtitle>
       <v-card-text class="pb-0">
@@ -29,11 +31,11 @@
           >
             <strong>{{ designation.position }}</strong>
             <p>
-              <span v-if="designation.jobtype" class="mr-2">
+              <span v-if="designation.jobtype">
                 {{ designation.jobtype }}
               </span>
-              <span v-if="designation.from" class="mr-2">
-                <v-icon small>mdi-circle-small</v-icon>
+              <span v-if="designation.from">
+                <v-icon small class="mx-0">mdi-circle-small</v-icon>
                 {{ designation.from.seconds | moment("MMM YYYY") }} -
                 {{ getTimeTo(designation) }}
               </span>
@@ -93,8 +95,8 @@ export default {
   },
   mounted() {
     this.data.designations.sort((x, y) => {
-        return y.from.seconds - x.from.seconds
-      })
+      return y.from.seconds - x.from.seconds;
+    });
     if (this.data.image) {
       file
         .getFile(this.data.image)
