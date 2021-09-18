@@ -1,5 +1,10 @@
 <template>
   <v-timeline-item right dense>
+    <template v-slot:icon>
+      <v-avatar>
+        <img :src="image" alt="Project Logo" />
+      </v-avatar>
+    </template>
     <v-card>
       <v-card-title>
         {{ data.title }}
@@ -17,43 +22,17 @@
           </v-btn>
         </span>
       </v-card-subtitle>
+      <v-card-text>{{ data.desc }}</v-card-text>
       <v-container>
-        <v-row>
+        <v-row no-gutters>
           <v-col
             :key="i"
             cols="12"
-            sm="12"
+            sm="2"
             md="2"
-            v-for="(video, i) in data.videos"
+            v-for="(video, i) in data.gallery"
           >
-            <v-card :loading="loading" class="mx-auto my-12" max-width="374">
-              <v-hover v-slot="{ hover }">
-                <v-img
-                  height="60"
-                  src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-                >
-                  <v-expand-transition>
-                    <div
-                      v-if="hover"
-                      class="
-                        d-flex
-                        transition-fast-in-fast-out
-                        darken-2
-                        v-card--reveal
-                      "
-                    >
-                      <img
-                        class="center-block"
-                        src="images/youtube.jpg"
-                        height="30"
-                        width="30"
-                      />
-                    </div> </v-expand-transition
-                ></v-img>
-              </v-hover>
-
-              <small class="mx-1">Cafe Badilico</small>
-            </v-card>
+            <y-t-video-card :video="video" />
           </v-col>
         </v-row>
       </v-container>
@@ -61,10 +40,17 @@
   </v-timeline-item>
 </template>
 <script>
+import file from "../firebase/file";
 import moment from "moment";
+import YTVideoCard from "./YTVideoCard.vue";
 
 export default {
-  setup() {},
+  components: { YTVideoCard },
+  data() {
+    return {
+      image: "images/logo_ph.jpg",
+    };
+  },
   props: {
     data: {},
   },
@@ -78,17 +64,18 @@ export default {
       return item ? "mdi-" + item : "mdi-diameter-variant";
     },
   },
+  mounted() {
+    if (this.data.image) {
+      file
+        .getFile(this.data.image)
+        .then((url) => {
+          this.image = url;
+        })
+        .catch(() => {
+          this.image = "images/logo_ph.jpg";
+          console.warn("Error loading project logo image ");
+        });
+    }
+  },
 };
 </script>
-<style scoped>
-.v-card--reveal {
-  align-items: center;
-  bottom: 0;
-  justify-content: center;
-  opacity: 0.8;
-  height: 100%;
-  background: #ffffff;
-  position: absolute;
-  width: 100%;
-}
-</style>

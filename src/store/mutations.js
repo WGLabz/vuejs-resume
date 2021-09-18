@@ -26,7 +26,7 @@ export default {
     setContactDetails(state, details) {
         state.contactDetails = details;
     },
-    setPersonaProjects(state, details) {
+    setPersonalProjects(state, details) {
         state.personalProjects = details;
     }
 }

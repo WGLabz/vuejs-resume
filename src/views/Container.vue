@@ -69,7 +69,7 @@ export default {
       return this.$store.getters.getContactDetails;
     },
     personalProjectsDetsils: function(){
-      return this.$store.getters.getPersonalProjectsData;
+      return this.$store.getters.getPersonalProjects;
     }
   },
 };
