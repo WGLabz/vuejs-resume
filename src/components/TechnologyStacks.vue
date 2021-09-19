@@ -14,6 +14,7 @@
           :href="technology.link"
           target="_blank"
           depressed
+          tile
           v-if="technology.name"
         >
           <v-icon small class="pr-2">{{ generateIcon(technology) }}</v-icon>
