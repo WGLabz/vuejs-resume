@@ -9,7 +9,7 @@
           >
             <img
               class="center-block"
-              src="images/youtube.jpg"
+              src="images/link.png"
               height="30"
               width="30"
             />

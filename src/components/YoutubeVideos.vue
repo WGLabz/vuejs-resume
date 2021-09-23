@@ -28,11 +28,16 @@
           <v-col
             :key="i"
             cols="12"
+            class="pr-2"
             sm="2"
             md="2"
             v-for="(video, i) in data.gallery"
           >
-            <y-t-video-card :video="video" />
+            <y-t-video-card
+              :video="video"
+              v-if="data.gallery_type === 'video'"
+            />
+            <image-card :video="video" v-if="data.gallery_type === 'image'" />
           </v-col>
         </v-row>
       </v-container>
@@ -43,9 +48,10 @@
 import file from "../firebase/file";
 import moment from "moment";
 import YTVideoCard from "./YTVideoCard.vue";
+import ImageCard from "./ImageCard.vue";
 
 export default {
-  components: { YTVideoCard },
+  components: { YTVideoCard, ImageCard },
   data() {
     return {
       image: "images/logo_ph.jpg",
