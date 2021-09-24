@@ -23,7 +23,18 @@
         </span>
       </v-card-subtitle>
       <v-card-text>{{ data.desc }}</v-card-text>
-      <v-container>
+      <v-card-text class="pb-0" v-if="data.gallery_type === 'github'">
+        <a-timeline class="pl-0">
+          <a-timeline-item
+            class="pb-1"
+            :color="color"
+            v-for="(commit, index) in data.commits"
+            :key="index"
+            >{{ commit.message }} <small> by <a :href="commit.user_link" target="_blank">{{commit.id}} </a> on {{commit.date | moment('DD/MM/YYYY')}}</small>
+          </a-timeline-item>
+        </a-timeline>
+      </v-card-text>
+      <v-container v-else>
         <v-row no-gutters>
           <v-col
             :key="i"
