@@ -27,10 +27,14 @@
         <a-timeline class="pl-0">
           <a-timeline-item
             class="pb-1"
-            :color="color"
             v-for="(commit, index) in data.commits"
             :key="index"
-            >{{ commit.message }} <small> by <a :href="commit.user_link" target="_blank">{{commit.id}} </a> on {{commit.date | moment('DD/MM/YYYY')}}</small>
+            >{{ commit.message }}
+            <small>
+              by
+              <a :href="commit.user_link" target="_blank">{{ commit.id }} </a>
+              on {{ commit.date | moment("DD/MM/YYYY") }}</small
+            >
           </a-timeline-item>
         </a-timeline>
       </v-card-text>
@@ -52,6 +56,12 @@
           </v-col>
         </v-row>
       </v-container>
+      <v-card-text
+        class="mt-2 pt-0 ml-0"
+        v-if="data.tech && data.tech.length > 0"
+      >
+        <technology-stacks :tech="data" :hasHeader="false" />
+      </v-card-text>
     </v-card>
   </v-timeline-item>
 </template>
@@ -60,9 +70,10 @@ import file from "../firebase/file";
 import moment from "moment";
 import YTVideoCard from "./YTVideoCard.vue";
 import ImageCard from "./ImageCard.vue";
+import TechnologyStacks from "./TechnologyStacks.vue";
 
 export default {
-  components: { YTVideoCard, ImageCard },
+  components: { YTVideoCard, ImageCard, TechnologyStacks },
   data() {
     return {
       image: "images/logo_ph.jpg",
