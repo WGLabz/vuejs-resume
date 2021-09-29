@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Container from './views/Container'
+import Admin from './views/Admin'
 
 Vue.use(VueRouter)
 
@@ -8,11 +10,17 @@ const routes = [
     {
         path: '/',
         name: 'home',
-        component: Vue.component('Container', require('./views/Container'))
+        component: Container
+    },
+    {
+        path: '/admin',
+        name: 'admin',
+        component: Admin
     }
 ]
 export default new VueRouter({
     mode: 'history',
+    base: process.env.BASE_URL,
     scrollBehavior: function (to, from, savedPosition) {
         if (savedPosition) {
             return savedPosition;

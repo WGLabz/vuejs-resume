@@ -1,18 +1,16 @@
 <template>
   <v-app>
-    <v-main>
-      <Container />
-    </v-main>
+    <v-main><router-view /></v-main>
   </v-app>
 </template>
 
 <script>
-import Container from "./views/Container.vue";
+// import Container from "./views/Container.vue";
 
 export default {
   name: "App",
   components: {
-    Container,
+    // Container,
   },
   mounted() {
     this.$store.dispatch("setUserMetaData");
