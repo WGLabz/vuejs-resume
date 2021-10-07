@@ -23,7 +23,7 @@
             </v-col>
           </v-row>
           <v-row>
-            <v-col cols="2" class="px-0"  v-if="Object.keys(data).length > 2">
+            <v-col cols="2" class="px-0" v-if="Object.keys(data).length > 2">
               <v-icon>mdi-crosshairs-gps </v-icon>
             </v-col>
             <v-col>
@@ -40,20 +40,43 @@
           </v-row>
         </v-container>
       </div>
-      <div class="col-md-7 col-md-push-1">
-        <!-- Some other contetn place holder -->
+      <div class="col-md-7 pb-8">
+        <v-card :href="data.map_link" target="_blank">
+          <v-img :src="image" />
+        </v-card>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import file from "../../firebase/file";
 import ModuleHeader from "../../components/ModuleHeader.vue";
 export default {
   name: "Contact",
   props: { data: {} },
+  data() {
+    return {
+      image: "images/map-ph.png",
+    };
+  },
   components: {
     ModuleHeader,
+  },
+  watch: {
+    data: function (val) {
+      if (val.map) {
+        file
+          .getFile(val.map)
+          .then((url) => {
+            this.image = url;
+          })
+          .catch(() => {
+            this.image = "images/map-ph.png";
+            console.warn("Error loading project logo image ");
+          });
+      }
+    },
   },
 };
 </script>
