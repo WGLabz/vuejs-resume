@@ -38,7 +38,9 @@ export default {
 };
 </script>
 <style>
-.parent-container {
-  margin-left: 40px;
+@media screen and (min-width: 600px) {
+  .parent-container {
+    margin-left: 40px;
+  }
 }
 </style>

@@ -6,7 +6,7 @@
     <div class="px-0 mx-0">
       <v-timeline align-top dense>
         <template v-for="(item, i) in data">
-          <youtube-videos :key="i" :data="item"></youtube-videos>
+          <personal-project :key="i" :data="item" />
         </template>
       </v-timeline>
     </div>
@@ -15,12 +15,12 @@
 
 <script>
 import ModuleHeader from "../../components/ModuleHeader.vue";
-import YoutubeVideos from "../../components/YoutubeVideos.vue";
+import PersonalProject from "../../components/PersonalProject.vue";
 export default {
   name: "PersonalProjects",
   props: {
     data: [],
   },
-  components: { ModuleHeader, YoutubeVideos },
+  components: { ModuleHeader, PersonalProject },
 };
 </script>
