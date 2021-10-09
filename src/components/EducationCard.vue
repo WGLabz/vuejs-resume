@@ -11,7 +11,7 @@
       ></v-img>
       <span
         >{{ data.institute }}
-        <span v-if="data.location">, {{ data.location }} </span></span
+        <span v-if="data.location_">, {{ data.location_ }} </span></span
       >
     </v-card-title>
     <v-card-subtitle>

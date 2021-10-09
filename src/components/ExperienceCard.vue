@@ -39,9 +39,9 @@
                 {{ designation.from.seconds | moment("MMM YYYY") }} -
                 {{ getTimeTo(designation) }}
               </span>
-              <span v-if="designation.location">
+              <span v-if="designation.location_">
                 <v-icon small>mdi-circle-small</v-icon>
-                {{ designation.location }}
+                {{ designation.location_ }}
               </span>
             </p>
             <p>{{ designation.desc }}</p>
