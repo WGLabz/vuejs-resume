@@ -21,6 +21,14 @@
             Website
           </v-btn>
         </span>
+        <span v-if="data.views">
+          <v-icon small>mdi-circle-small</v-icon>
+          {{ data.views }} Views
+        </span>
+        <span v-if="data.subscribers">
+          <v-icon small>mdi-circle-small</v-icon>
+          {{ data.subscribers }} Subscribers
+        </span>
       </v-card-subtitle>
       <v-card-text>{{ data.desc }}</v-card-text>
       <v-card-text class="pb-0" v-if="data.gallery_type === 'github'">
