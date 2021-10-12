@@ -1,13 +1,11 @@
-import axios from "axios";
-
+import http from "../http";
 
 const firestoreCall = async (collection_) => {
-    const res = await axios.get("http://localhost:3000/data/" + collection_);
+    const res = await http.getCollection(collection_);
     var data = res.data;
     if (data.length === 0)
         throw new Error("Please setup firebase " + collection_ + " collection.");
     return data;
-
 }
 
 

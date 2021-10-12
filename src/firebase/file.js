@@ -1,7 +1,7 @@
-import axios from 'axios';
+import http from '../http';
 
 const getFile = async (fileName) => {
-    var data = await axios.get('http://localhost:3000/file/' + fileName)
+    var data = await http.getFile(fileName)
     return data.data;
 };
 
