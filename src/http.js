@@ -1,5 +1,5 @@
 import axios from 'axios'
-const serverURL = process.env.server || "http://localhost:3000"
+const serverURL = process.env.BACKEND_SERVER || "http://localhost:3000"
 
 const AXIOS = axios.create({
     baseURL: `${serverURL}`,
