@@ -62,7 +62,7 @@
 <script>
 import vueJsonEditor from "vue-json-editor";
 import { getAuth } from "firebase/auth";
-import axios from "axios";
+import http from "../http";
 
 export default {
   components: {
@@ -79,7 +79,7 @@ export default {
       mode: "tree",
       idToken: "",
       changed: false,
-      url: "https://resume-backend-bikash.herokuapp.com",
+      url: "",
       snackbar: false,
       snackbartext: "",
       snackbarColor: "success",
@@ -96,11 +96,8 @@ export default {
     },
     save() {
       this.saving = true;
-      axios
-        .post(this.url + "/firebase?token=" + this.idToken, {
-          updated: this.updatedJSON,
-          // original: this.originalJSON,
-        })
+      http
+        .postData(this.idToken, this.updatedJSON)
         .then((res) => {
           this.saving = false;
           if (!res.data.msg.status) {
@@ -133,8 +130,8 @@ export default {
       var idToken = await user.getIdToken(true);
       this.idToken = idToken;
       this.loading = true;
-      axios
-        .get(this.url + "/firebase?token=" + idToken)
+      http
+        .getData(idToken)
         .then((response) => {
           this.json = response.data;
           this.originalJSON = response.data;
@@ -156,6 +153,7 @@ export default {
     },
   },
   mounted() {
+    this.url = http.serverURL;
     this.loadData();
     this.originalURL = this.url;
   },

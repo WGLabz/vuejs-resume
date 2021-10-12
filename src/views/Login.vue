@@ -46,10 +46,9 @@
     </v-snackbar>
   </div>
 </template>
-
-
 <script>
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
 export default {
   data() {
     return {

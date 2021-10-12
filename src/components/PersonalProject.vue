@@ -11,7 +11,7 @@
       </v-card-title>
       <v-card-subtitle>
         <span v-if="data.from" small>
-          {{ data.from.seconds | moment("MMM YYYY") }} -
+          {{ data.from._seconds | moment("MMM YYYY") }} -
           {{ getTimeTo(data) }}
         </span>
 
@@ -92,8 +92,8 @@ export default {
   },
   methods: {
     getTimeTo(val) {
-      return val.to && val.to.seconds
-        ? moment(val.to.seconds * 1000).format("MMM YYYY")
+      return val.to && val.to._seconds
+        ? moment(val.to._seconds * 1000).format("MMM YYYY")
         : "Now";
     },
     icon(item) {

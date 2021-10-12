@@ -5,7 +5,7 @@
       >{{ publication.event }}
       <span v-if="publication.date">
         <v-icon small class="mx-1">mdi-circle-small</v-icon
-        >{{ publication.date.seconds | moment("MMM YYYY") }}</span
+        >{{ publication.date._seconds | moment("MMM YYYY") }}</span
       >
     </v-card-subtitle>
 

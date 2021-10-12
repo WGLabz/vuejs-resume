@@ -19,8 +19,8 @@
     </v-card-subtitle>
     <v-card-text class="pb-0">
       <v-btn small outlined disabled class="mr-2" v-if="data.from && data.to">
-        {{ data.from.seconds | moment("YYYY") }} -
-        {{ data.to.seconds | moment("YYYY") }}
+        {{ data.from._seconds | moment("YYYY") }} -
+        {{ data.to._seconds | moment("YYYY") }}
       </v-btn>
       <v-btn small outlined disabled v-if="data.gpa"
         >CGPA/%:
@@ -66,8 +66,8 @@ export default {
   },
   methods: {
     getTimeTo(val) {
-      return val.to && val.to.seconds
-        ? moment(val.to.seconds * 1000).format("MMM YYYY")
+      return val.to && val.to._seconds
+        ? moment(val.to._seconds * 1000).format("MMM YYYY")
         : "Now";
     },
     icon(item) {

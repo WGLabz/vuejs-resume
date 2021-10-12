@@ -9,13 +9,19 @@ import VueMeta from 'vue-meta'
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 
-Vue.use(Antd);
-//End
+// Firebase and Axios
+import { initializeApp } from "firebase/app";
+import http from './http';
 
+Vue.use(Antd);
 Vue.use(VueMeta)
 Vue.use(require('vue-moment'));
 
 Vue.config.productionTip = false
+
+http.getFBConfig().then((res) => {
+  initializeApp(res.data);
+});
 
 new Vue({
   vuetify,

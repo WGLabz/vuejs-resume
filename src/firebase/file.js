@@ -1,6 +1,8 @@
-import fb from './index.js'
-import { ref, getDownloadURL } from "firebase/storage";
+import http from '../http';
 
-const getFile = (fileName) => getDownloadURL(ref(fb.storage, fileName));
+const getFile = async (fileName) => {
+    var data = await http.getFile(fileName)
+    return data.data;
+};
 
 export default { getFile }
