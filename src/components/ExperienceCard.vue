@@ -11,7 +11,7 @@
       </v-card-title>
       <v-card-subtitle>
         <span v-if="data.from" small>
-          {{ data.from.seconds | moment("MMM YYYY") }} -
+          {{ data.from._seconds | moment("MMM YYYY") }} -
           {{ getTimeTo(data) }}
         </span>
 
@@ -36,7 +36,7 @@
               </span>
               <span v-if="designation.from">
                 <v-icon small class="mx-0">mdi-circle-small</v-icon>
-                {{ designation.from.seconds | moment("MMM YYYY") }} -
+                {{ designation.from._seconds | moment("MMM YYYY") }} -
                 {{ getTimeTo(designation) }}
               </span>
               <span v-if="designation.location_">
@@ -79,8 +79,8 @@ export default {
   },
   methods: {
     getTimeTo(val) {
-      return val.to && val.to.seconds
-        ? moment(val.to.seconds * 1000).format("MMM YYYY")
+      return val.to && val.to._seconds
+        ? moment(val.to._seconds * 1000).format("MMM YYYY")
         : "Now";
     },
     icon(item) {
@@ -95,7 +95,7 @@ export default {
   },
   mounted() {
     this.data.designations.sort((x, y) => {
-      return y.from.seconds - x.from.seconds;
+      return y.from._seconds - x.from._seconds;
     });
     if (this.data.image) {
       file

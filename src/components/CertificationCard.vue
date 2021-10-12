@@ -30,7 +30,7 @@
         <v-card-actions>
           <v-btn dense small outlined disabled class="ml-2">
             <v-icon small>mdi-calendar</v-icon>
-            {{ certifcation.certifiedon.seconds | moment("DD-MM-YYYY") }}
+            {{ certifcation.certifiedon._seconds | moment("DD-MM-YYYY") }}
           </v-btn>
           <v-btn
             dense
@@ -41,7 +41,7 @@
             v-if="certifcation.validtill"
           >
             <v-icon small>mdi-calendar</v-icon>
-            {{ certifcation.validtill.seconds | moment("DD-MM-YYYY") }}
+            {{ certifcation.validtill._seconds | moment("DD-MM-YYYY") }}
           </v-btn>
           <v-btn dense small outlined plain disabled v-else> No Expiry </v-btn>
         </v-card-actions>

@@ -1,6 +1,8 @@
-import fb from './index.js'
-import { ref, getDownloadURL } from "firebase/storage";
+import axios from 'axios';
 
-const getFile = (fileName) => getDownloadURL(ref(fb.storage, fileName));
+const getFile = async (fileName) => {
+    var data = await axios.get('http://localhost:3000/file/' + fileName)
+    return data.data;
+};
 
 export default { getFile }

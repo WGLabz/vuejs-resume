@@ -12,9 +12,9 @@
       </v-card-title>
       <v-card-subtitle>
         <span>
-          {{ project.from.seconds | moment("MMM YYYY") }} -
+          {{ project.from._seconds | moment("MMM YYYY") }} -
           <span v-if="project.to">{{
-            project.to.seconds | moment("MMM YYYY")
+            project.to._seconds | moment("MMM YYYY")
           }}</span>
           <span v-else>Now</span>
         </span>
