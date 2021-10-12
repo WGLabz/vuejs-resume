@@ -1,6 +1,9 @@
 import axios from 'axios'
-const serverURL = process.env.BACKEND_SERVER || "http://localhost:3000"
 
+//Set backend server URL
+const serverURL = 'https://resume-backend-bikash.herokuapp.com/'
+
+//
 const AXIOS = axios.create({
     baseURL: `${serverURL}`,
     timeout: 100000
