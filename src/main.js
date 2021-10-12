@@ -8,6 +8,8 @@ import VueMeta from 'vue-meta'
 // Imports fot Ant Components
 import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
+import axios from 'axios';
+import { initializeApp } from "firebase/app";
 
 Vue.use(Antd);
 //End
@@ -17,6 +19,9 @@ Vue.use(require('vue-moment'));
 
 Vue.config.productionTip = false
 
+axios.get("http://localhost:3000/auth/config").then((res) => {
+  initializeApp(res.data);
+});
 new Vue({
   vuetify,
   store,

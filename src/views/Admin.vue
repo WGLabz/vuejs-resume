@@ -99,7 +99,6 @@ export default {
       axios
         .post(this.url + "/firebase?token=" + this.idToken, {
           updated: this.updatedJSON,
-          // original: this.originalJSON,
         })
         .then((res) => {
           this.saving = false;
