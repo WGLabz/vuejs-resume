@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 //Set backend server URL
-const serverURL = 'https://resume-backend-bikash.herokuapp.com/'
+const serverURL = 'https://cozy-daffodil-5c52ef.netlify.app/'
 
 //
 const AXIOS = axios.create({
