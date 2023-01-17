@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 //Set backend server URL
-const serverURL = 'https://cozy-daffodil-5c52ef.netlify.app/'
+const serverURL = 'https://verbal-doloritas-oksbwn.koyeb.app/'
 
 //
 const AXIOS = axios.create({
