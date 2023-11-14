@@ -15,7 +15,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Build
-        run:  export BACKEND_SERVER='https://resume-backend-bikash.herokuapp.com/' && npm run build
+        run:  export NODE_OPTIONS=--openssl-legacy-provider && export BACKEND_SERVER='https://resume-backend-bikash.herokuapp.com/' && npm run build
       - name: push to bikashnpanda.github.io
         uses: cpina/github-action-push-to-another-repository@main
         env:
