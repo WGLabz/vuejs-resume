@@ -30,7 +30,7 @@
       <v-card-text class="mt-0 pt-0 ml-0">
         <technology-stacks :tech="tech" :hasHeader="false" />
       </v-card-text>
-      <v-card-text class="mt-0 pt-0">
+      <v-card-text class="mt-0 pt-0" v-if="!!project.bulletpoints && project.bulletpoints.length > 0">
         <span v-for="(item, index) in project.bulletpoints" :key="index">
           <p class="mb-0">
             <v-icon small class="pr-1">

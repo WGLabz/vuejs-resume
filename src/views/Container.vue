@@ -10,7 +10,7 @@
         <certifications :data="certificationsData" />
         <experience :data="experienceData" />
         <publications :data="publicationsData" />
-        <personal-projects :data="personalProjectsDetsils"/>
+        <personal-projects :data="personalProjectsDetsils" />
         <contact :data="contactDetails" />
       </div>
     </div>
@@ -44,33 +44,37 @@ export default {
     PersonalProjects,
   },
   computed: {
-    projectsData: function () {
-      return this.$store.getters.getProjectsData;
+    projectsData: function() {
+      var projectsData = this.$store.getters.getProjectsData;
+      var pinnedProjects = projectsData.filter((a) => a.ispinned)  
+      var notPinnedProjects = projectsData.filter((a) => !a.ispinned)
+
+      return [...pinnedProjects, ...notPinnedProjects];
     },
-    userData: function () {
+    userData: function() {
       return this.$store.getters.getUserMetaData;
     },
-    skillsOverviewData: function () {
+    skillsOverviewData: function() {
       return this.$store.getters.getSkills;
     },
-    educationData: function () {
+    educationData: function() {
       return this.$store.getters.getEducationData;
     },
-    certificationsData: function () {
+    certificationsData: function() {
       return this.$store.getters.getCertificationsData;
     },
-    experienceData: function () {
+    experienceData: function() {
       return this.$store.getters.getExperienceData;
     },
-    publicationsData: function () {
+    publicationsData: function() {
       return this.$store.getters.getPublicationsData;
     },
-    contactDetails: function () {
+    contactDetails: function() {
       return this.$store.getters.getContactDetails;
     },
-    personalProjectsDetsils: function(){
+    personalProjectsDetsils: function() {
       return this.$store.getters.getPersonalProjects;
-    }
+    },
   },
 };
 </script>

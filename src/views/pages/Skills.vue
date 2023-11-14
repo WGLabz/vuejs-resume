@@ -24,6 +24,7 @@
         v-for="tech in techStacks"
         :key="tech.name"
       />
+      <br />
     </div>
   </div>
 </template>

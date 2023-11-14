@@ -1,10 +1,8 @@
 <template>
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3 col-md-pull-3">
+    <div >
       <span class="heading-meta">{{ title }}</span>
       <h2 class="colorlib-heading">{{ header }}</h2>
     </div>
-  </div>
 </template>
 
 <script>
@@ -19,7 +17,7 @@ export default {
 
 <style scoped>
 .heading-meta {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   display: block;
   font-size: 10px;
   text-transform: uppercase;
@@ -36,12 +34,13 @@ export default {
   line-height: 1.8;
   position: relative;
 }
-.colorlib-heading span {
+.colorlib-heading {
   display: block;
+    margin-bottom: 0.8em;
 }
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   .colorlib-heading {
-    margin-bottom: 3em;
+    margin-bottom: 0.8em;
   }
-}
+} */
 </style>

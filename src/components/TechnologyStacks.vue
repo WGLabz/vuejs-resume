@@ -1,11 +1,11 @@
 <template>
-  <div class="pb-6">
-    <div class="pb-1">
+  <div class="pb-2">
+    <div class="pb-2">
       <h4 v-if="hasHeader">{{ tech.name || "Dummy Technology Type" }}</h4>
     </div>
     <div class="d-flex justify-content-start flex-wrap">
-      <div v-for="(technology, ii) in tech.tech" :key="ii" class="mr-2 mb-2">
-        <v-btn
+      <div v-for="(technology, ii) in tech.tech" :key="ii" class="mr-1 mb-1">
+        <!-- <v-btn
           type="button"
           class="ml-0"
           small
@@ -16,10 +16,11 @@
           depressed
           tile
           v-if="technology.name"
-        >
-          <v-icon small class="pr-2">{{ generateIcon(technology) }}</v-icon>
-          {{ technology.name }}
-        </v-btn>
+        > -->
+          <!-- <v-icon small class="pr-2">{{ generateIcon(technology) }}</v-icon> -->
+          <a-badge :count="technology.name" :number-style="{ backgroundColor: color() }" />
+          <!-- {{ technology.name }} -->
+        <!-- </v-btn> -->
       </div>
     </div>
   </div>

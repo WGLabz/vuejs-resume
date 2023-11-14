@@ -1,10 +1,10 @@
 <template>
   <div
     id="about"
-    style="margin-top: 40px; margin-bottom: 140px"
+    style="margin-top: 10px; margin-bottom: 140px"
     class="parent-container"
   >
-    <module-header title="WHO AM I?" header="About Me" />
+    <module-header title="WHO AM I?" header="About Me" class=""/>
     <div class="row mt-0">
       <div class="col-md-12">
         <div class="about-desc mt-0">
